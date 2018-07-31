@@ -1,0 +1,4150 @@
+/* ============================================================================
+   This is a mobile first stylesheet and it applies to all screen widths.
+   For changes to the desktop or tablet viewports, see tablet-and-desktop.scss.
+   ============================================================================ */
+
+//* style variables *//
+
+// headline font
+$headline-font: 'Roboto', sans-serif;
+
+// main font
+$font: 'Roboto', sans-serif;
+
+// button font
+$button-font: 'Montserrat', sans-serif;
+
+$blue: #009cfb;
+$orange: #F96E4F;
+$green: #50C42D;
+
+$navy: #1c2e5d;
+$grey: #3c3c3c;
+$royal-blue: #004789;
+$medium-blue: #0073BD;
+$menu-gray: #EEEEEE;
+
+$facebook: #3b5998;
+$twitter: #00aced;
+
+$theme-color-1: $orange;
+$theme-color-2: $green;
+$theme-color-3: $blue;
+$theme-color-4: $navy;
+
+// form input area focus color
+$theme-color-5: rgba(0,0,0,.2);
+
+// general success and error colors
+$red: $orange;
+
+// background images
+$background-texture: none;
+$header-texture: none;
+$header-color: #fff;
+
+//* main responsive components *//
+
+@import "custom-mixins";
+
+// border-radius mixin
+@import "border_radius";
+
+// compass css3 mixins
+@import "compass/css3";
+
+// countdown widget for moneybomb page
+@import "framework_countdown2";
+
+// fluid grid
+@import "grid";
+
+// activity and page icons
+@import "icons";
+
+// form elements
+@import "forms";
+
+// buttons
+@import "buttons";
+
+// tooltips
+@import "tooltips";
+
+// tables
+@import "tables";
+
+// pagination
+@import "pagination";
+
+// progress bar
+@import "progress-bar";
+
+// mobile nav
+@import "mobile-nav";
+
+// styles for new features
+@import "updates";
+
+// staged donation page
+@import "staged-donations";
+
+// applies border-box to all elements
+
+* {
+  @include box-sizing(border-box);
+}
+
+.clearfix {
+  @include nb-clearfix;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+.main-container {
+  min-height: 60vh;
+}
+
+// headlines
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headline-font;
+  margin: 0;
+  padding: 0;
+  color: $blue;
+
+  a{
+    color: $green;
+  }
+}
+
+h1, h2 {
+  font-size: 35px;
+  line-height: 45px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 35px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+h5 {
+  font-family: $button-font;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+.hide {
+  display: none;
+}
+
+// general link styles
+
+a {
+  color: $orange;
+  text-decoration: none;
+  outline: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 1em 0;
+  padding: 0;
+}
+
+blockquote {
+  font-family: $headline-font;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 38px;
+  margin: 30px 0;
+  border-top: 1px solid $blue;
+  border-bottom: 1px solid $blue;
+  p {
+    color: $navy;
+  }
+}
+
+// allows embedded images to expand/contract with viewport
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: none;
+}
+
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  background: #fff;
+  margin: 0;
+  font: 18px/30px $font;
+  font-weight: 300;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-type-donation {
+  .header-container{
+    background-color: white;
+  }
+  .form-wrap{
+    background-color: white;
+    margin-bottom: 30px;
+  }
+}
+
+.width-container {
+  width: 90%;
+  margin: 0 5%;
+}
+
+.no-background {
+  background: none !important;
+}
+
+.center {
+  text-align: center;
+}
+
+// basic padding
+
+.padtopless {
+  padding-top: 5px;
+}
+
+.padtop {
+  padding-top: 10px;
+}
+
+.padtopmore {
+  padding-top: 15px;
+}
+
+.padbottomless {
+  padding-bottom: 5px;
+}
+
+.padbottom {
+  padding-bottom: 10px;
+}
+
+.padbottommore {
+  padding-bottom: 50px;
+}
+
+.fb-like-box iframe {
+  display: block;
+}
+
+// message asking people to check their email to activate account
+
+.activation-message {
+  font-weight: bold;
+  font-size: 18px;
+  color: $theme-color-3;
+}
+
+// style an image with rounded corners
+
+.img-rounded {
+  @include border-radius(6px);
+}
+
+// style an image with a sublte frame
+
+.img-polaroid {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// style an image as a circle
+
+.img-circle {
+  @include border-radius(500px);
+}
+
+// add padding around an image
+
+.img-padleft {
+  margin: 5px 0 5px 15px;
+}
+
+.img-padright {
+  margin: 5px 15px 5px 0;
+}
+
+// javascript is used to wrap all iframes in a span called responsive-embed-wrapper to make them responsive
+
+.responsive-embed-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  display: block;
+
+  iframe {
+    display: block;
+  }
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.vcard {
+  .tel {
+    display: block;
+  }
+}
+
+// breadcrumbs
+
+.breadcrumbs {
+  padding: 34px 0;
+  list-style: none;
+  background-color: $green;
+  background-image: url(green-background-1.png);
+  background-position: center;
+  background-repeat: repeat-x;
+  color: #fff;
+  margin: 0;
+  a{
+    color: #fff;
+  }
+  li{
+    font-size: 14px;
+    font-weight: 700;
+    display: inline;
+  }
+  li:first-child{
+    font-weight: 400;
+    text-transform: uppercase; 
+  }
+}
+
+.breadcrumbs > li {
+  display: inline-block;
+}
+
+.breadcrumbs > li > .divider {
+  padding: 0 5px;
+  color: #fff;
+}
+
+.breadcrumbs > .active {
+  color: #fff;
+}
+
+// site title shown in header
+
+.title {
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+
+// wraps your site name or site logo
+
+header {
+  float: left;
+  padding: 28px 0 0 0;
+  max-width: 78%;
+}
+
+// if the site has a logo, center it it above content in mobile view
+
+.site-logo {
+  width: 78px;
+  height: 70px;
+  background-image: url(vision_logo_green.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain !important;
+  -moz-background-size: contain !important;
+  -o-background-size: contain !important;
+  background-size: contain !important;
+  margin: 25px auto;
+  display: block;
+}
+
+// if it's a splash page, center the logo or site name
+
+header.splash {
+  float: none;
+  text-align: center;
+  max-width: 100%;
+}
+
+.site-logo {
+  header.splash {
+    text-align: center;
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+// icon which activates off canvas nav
+
+.menu-link {
+  float: right;
+  display: block;
+  margin: 40px 20px 0 0;
+  font-size: 12px;
+  font-family: $font;
+  color: $navy;
+
+  .icon-menu {
+    margin-top: 30px;
+    color: black;
+    font-size: 24px;
+    display: block;
+  }
+}
+
+// off canvas mobile nav
+
+nav {
+  @include mobile-nav;
+  .supporter-nav-menu {
+
+    .supporter-nav-menu-sub {
+      background-color: $menu-gray;
+    }
+
+    &:hover {
+      .supporter-nav-menu-sub {
+
+      }
+    }
+  }
+}
+
+
+// page layout if the sidebar is turned on
+
+.twocolumn-container {
+  .left-column, .right-column-wide {
+    margin-bottom: 15px;
+  }
+  .right-column, .left-column-narrow {
+    margin-bottom: 15px;
+  }
+}
+
+// page layout if the sidebar is turned off
+
+.onecolumn-container {
+}
+
+// page header
+
+.page-header {
+  .width-container {
+    border-top: 1px solid $green;
+    margin-top: 15px;
+
+    p {
+      color: $blue;
+      font-size: 30px;
+      line-height: 40px;
+      font-weight: 300;
+    }
+
+    h2 {
+      margin: 30px 0;
+    }
+  }
+
+  text-align: left;
+
+  .page-excerpt{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    color: $blue;
+    margin-bottom: 50px;
+  }
+
+  .submit-button{
+    margin-top: 40px;
+  }
+}
+
+.intro {
+  color: #000;
+  line-height: 40px;
+  font-weight: 400;
+
+  &.donation {
+    border-bottom: 1px solid $green;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  
+  .width-container {
+    border-top: 1px solid $green;
+    margin-bottom: 30px;
+  }
+}
+
+// wraps every page headline
+
+#headline, .headline {
+  font-size: 30px;
+  line-height: 40px;
+  color: $blue;
+  text-align: left;
+}
+
+// content box
+
+#content{
+  .width-container{
+    padding: 0;
+  }
+}
+
+// supporter photo shown in supporter nav and user profile
+
+.supporter-pic {
+  @include border-radius(5px);
+  @include border-radius-top-left(7px); // hides background behind image
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  margin-bottom: 15px;
+  .user-status span {
+    display: inline-block;
+    padding-top: 5px;
+  }
+}
+
+.supporter-pic-left {
+  float: left;
+  display: table-cell;
+  width: 72px;
+  height: 72px;
+  position: relative;
+  margin: -1px 6px 0 -1px;
+  a {
+    display: block;
+  }
+  img {
+    @include border-radius-top-left(5px);
+    @include border-radius-bottom-left(5px);
+    max-width: 100%;
+  }
+  .pc {
+    display: block;
+    @include border-radius-bottom-left(5px);
+    font-size: 11px;
+    line-height: 20px;
+    background-color: $theme-color-3;
+    color: white;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    position: absolute;
+    margin-top: -19px;
+    text-align: center;
+  }
+}
+
+// supporter info displayed on the right of photo in supporter nav and user profile
+
+.supporter-pic-right {
+  font-size: 12px;
+  display: table-cell;
+  line-height: 18px;
+  min-height: 72px;
+  padding: 10px 2% 2% 10px;
+  vertical-align: middle;
+  .name {
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    word-break: break-word;
+  }
+}
+
+// point person shown in supporter nav, if one is set
+
+.point-pic-left {
+  float: left;
+  height: 48px;
+  margin-right: 7px;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    @include border-radius-top-left(5px);
+    @include border-radius-bottom-left(5px);
+    max-width: 100%;
+  }
+}
+
+.point-pic-right {
+  background-color: #fff;
+  min-height: 48px;
+  padding: 1%;
+  line-height: 16px;
+  @include border-radius-top-right(5px);
+  @include border-radius-bottom-right(5px);
+  border: 1px solid #ebebeb;
+  .byline {
+    margin: 3px 0;
+  }
+  i {
+    font-size: 15px;
+  }
+}
+
+// box which wraps blocks of content in sidebar
+
+.box {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  @include border-radius(5px);
+  border: 1px solid #ebebeb;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// email signup which appears in right column if a user is signed out
+
+.email-signup {
+  input.text {
+    min-height: none;
+    height: 39px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    width: 100%; 
+    display: inline-block;
+  }
+  .submit-button {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    width: 100%; 
+
+    &.disabled {
+      opacity: 0.45;
+    }
+  }
+}
+
+.priority-signup {
+  label {
+    color: white;
+  }
+
+  h4 {
+    color: #fff;
+  }
+
+  input.text {
+    min-height: none;
+    height: 39px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-appearance: none;
+    width: 100%; 
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    border-bottom: 1px solid white;
+  }
+
+    &.disabled {
+      opacity: 0.45;
+    }
+}
+
+// flag link which allows user to report a post or comment
+
+.flag {
+  font-weight: normal !important;
+  font-size: 12px;
+}
+
+// activities shown at the bottom of a page, if turned on
+
+.activities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    &:first-child {
+      margin-top: 30px;
+    }
+    padding: 15px 25px;
+    margin: 0;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #000;
+    list-style: none;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+    [class^="icon-"] {
+      display: none;
+    }
+    .activity {
+      padding-left: 60px;
+      word-break: break-word;
+    }
+    .stream-pic {
+      float: left;
+      width: 48px;
+      height: 48px;
+      @include border-radius(50px);
+      @include box-shadow(0px 0px 2px #000);
+      overflow: hidden;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &:first-child {
+      border-top: 1px solid #e1e1e1;
+    }
+    a {
+      font-weight: bold;
+    }
+    .activity_content {
+      font-size: 18px;
+      padding: 10px 0 0 0;
+      a {
+        font-weight: normal;
+      }
+    }
+    .icon {
+      display: none;
+    }
+  }
+  .linked-signup-name {
+    font-family: $headline-font;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+// clean formatting for name, activity type and date in page stream in mobile view
+
+ul#page-stream {
+  li.activity  {
+    span + a {
+    display: block;
+    } 
+  }
+  .activity-time {
+    display: block;
+  }
+  .timeago {
+    display: block;
+    padding-right: 3px;
+    float: left;
+    font-size: 18px;
+    color: #999;
+  }
+  .activity-links a {
+    display: inline;
+  }
+  .activity-content {
+    clear: left;
+  }
+}
+
+// like page content at the bottom of pages
+
+.like-page {
+  clear: both;
+}
+
+//share url input box
+
+.share-url {
+  width: 400px;
+  @include box-sizing(border-box);
+}
+
+// excerpts of activities shown on a user profile page
+
+.page-excerpts {
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    .activity_content_text, .activity_content {
+      margin-top: 15px;
+    }
+    .activity {
+      margin: 0 0 15px 0;
+      // remove if you wish to show icons on activities
+      [class^="icon-"] {
+       display: none;
+      }
+    }
+    .page-excerpt {
+      padding: 20px 0 0 20px;
+    }
+    .form-wrap {
+      .answer-wrap {
+        background-color: #fafafa;
+      }
+      .icon-up-dir:before {
+        color: #fafafa;
+      }
+    }
+  }
+}
+
+.excerpt {
+  margin: 15px 0;
+}
+
+.excerpt .submit-button,
+.content-pages-show-moneybomb .submit-button{
+  vertical-align: top;
+}
+
+// page stream
+#stream{
+  background-color: #fafafa;
+  padding: 30px 0;
+}
+
+.page-type-activity-stream {
+  #stream{
+    padding: 30px 0;    
+  }
+}
+
+// list of events on calendar page
+
+.event-wrap {
+  margin: 0;
+  padding: 0;
+  @include nb-clearfix;
+
+  li {
+    list-style: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    @include nb-clearfix;
+  }
+}
+
+.event-venue {
+  margin: 0 0 1em 0;
+}
+// 'showing all events' text on calendar page
+
+.map-wrap {
+  .showing-all {
+    text-align: right;
+    font-size: 12px;
+  }
+  img {
+    max-width: none;
+  }
+  .infowindow-headline {
+    font-weight: bold;
+  }
+}
+
+// sign in text under sign up form
+
+.social {
+  font-size: 12px;
+}
+
+//invoices page
+
+.invoices {
+  .amount {
+    text-align: right;
+  }
+  .invoice-total .label {
+    padding-right: 10px;
+  }
+  .expander-content {
+    display: none;
+  }
+}
+
+//moneybomb page
+
+.page-type-moneybomb {
+  .event-detail subhead {
+    text-transform: uppercase;
+  }
+}
+
+//recruiter page
+
+.page-type-recruiting {
+  h4 {
+    font-family: $font;
+  }
+}
+
+// container for entire header area
+
+.header-container {
+  min-height: 115px;
+}
+
+// site wide footer
+
+footer {
+  background-color: $blue;
+  position: relative;
+  color: white;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 50px;
+
+  a{
+    color: #fff;
+  }
+
+  .parallax-footer-1{
+    background-color: $blue;
+    background-position: center 0;
+    background-repeat: repeat-x;
+    position: relative;
+  }
+  .parallax-footer-2{
+    background-color: $blue;
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    position: relative;
+    padding-bottom: 50px;
+    padding-top: 40px;
+  }
+
+  .footer-logo{
+    width: 86px;
+    height: 76px;
+    background-image: url(vision_logo_white.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    @include background-size(contain !important);
+    margin: 0px auto 20px;
+    display: block;
+  }
+}
+
+.footer-social-links{
+  font-size: 18px;
+  @media (max-width:768px) {
+    margin-top: 20px;
+  }
+  .social-link {
+    width: 35px;
+    height: 35px;
+    padding: 2px;
+    display: inline-block;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #FFF;
+      a {
+        color: $blue;
+      }
+    }
+
+    a{
+      width: 100%;
+      height: 100%;
+      display: block;
+      color: #FFF;
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+}
+
+// byline used in blogs, suggestion boxes, events, etc.
+
+.byline {
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 15px;
+  margin-top: 5px;
+  color: #ccc;
+  font-family: $button-font;
+}
+
+// supporter nav which is shown if a user is signed in
+
+.supporter-nav {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    margin-bottom: 1px;
+    i, span {
+      color: darken($theme-color-1, 10);
+    }
+    &.on {
+      border-left: 3px solid $theme-color-3;
+    }
+    &:first-child {
+      @include border-radius-top-left(5px);
+      @include border-radius-top-right(5px);
+    }
+    &:last-child {
+      margin-bottom: 15px;
+      @include border-radius-bottom-left(5px);
+      @include border-radius-bottom-right(5px);
+    }
+    &:hover {
+      border-left: 3px solid $theme-color-3;
+    }
+    a {
+      padding: 15px 15px;
+      display: block;
+    }
+  }
+}
+
+.supporter-nav-button, .feature-panel-button {
+  @include border-radius(0px);
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 10px 20px;
+  background: $blue;
+  border: 1px solid #fff;
+  transition: background-color 0.3s ease;
+
+  &:hover{
+    background: #FFF;
+    border: 1px solid #FFF;
+    color: $blue;
+  }
+}
+
+.feature-panel-button {
+  background: $orange;
+}
+
+
+// rules link shown near comment box
+
+.review-rules {
+  display: block;
+  padding: 10px 15px 0 18px;
+  font-size: 12px;
+}
+
+// follow page link shown in page stream
+
+.page-follow {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+  color: $medium-blue;
+  span{
+    margin-right: 5px;
+  }
+}
+
+// optional header image uploaded in site settings
+
+.header-image {
+  max-width: 100%;
+  margin-bottom: 50px;
+  margin-top: -30px;
+}
+
+//message that appears when a form is submitted
+.form-submitting {
+  padding: 15px 7px 0 0;
+  img {
+    margin-right: 6px;
+  }
+}
+
+// suggestion box tags
+
+.tag-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: inline;
+    line-height: 37px;
+    white-space: nowrap;
+    a {
+      font-family: $button-font;
+      font-size: 11px;
+      letter-spacing: .5px;
+      padding: 10px 14px;
+      margin: 0 3px 0 0;
+      text-decoration: none;
+      color: #9c9c9c;
+      text-transform: uppercase;
+      background-color: #fafafa;
+      @include border-radius(2px);
+    }
+  }
+  li a:hover {
+    background-color: $green;
+    color: white;
+  }
+  li.current a, li.current a:hover {
+    color: #fff;
+    background-color: $theme-color-1;
+  }
+}
+
+// layout for share buttons at the bottom of most pages
+
+.sharetable {
+  min-height: 39px;
+  .facebook-cell,
+  .twitter-cell,
+  .gplus-cell {
+    float: left;
+    text-align: left;
+    vertical-align: top;
+  }
+  .facebook-cell {
+    padding: 0 20px 15px 0;
+    width: 350px;
+    margin-top: -7px;
+  }
+  .twitter-cell {
+    padding: 0 20px 0 0;
+    width: 75px;
+
+    a {
+      text-indent: -999em;
+      display: inline-block;
+    }
+  }
+  .gplus-cell {
+    width: 52px;
+  }
+}
+
+.like-page {
+  margin-top: 15px;
+}
+
+// political/social capital displayed next to names
+
+.pc {
+  background-color: $theme-color-2;
+  color: #000;
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+// yes or no indicator on recuiter page
+
+.off-button-small {
+  font-size: 11px;
+  color: $red;
+}
+
+.on-button-small {
+  font-size: 11px;
+  color: $green;
+}
+
+.subhead {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  font-family: $button-font;
+  color: $medium-blue;
+}
+
+// applied to alerts or warnings
+
+.red {
+  color: $red;
+}
+
+small {
+  font-size: 85%;
+}
+
+// timestamp on activity
+
+.timeago {
+  font-size: 65%;
+}
+
+// tags users can select on suggestion page
+
+.suggestion-tag-list {
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    margin:  0 0 10px 0;
+  }
+  a {
+    padding: 5px 0 15px 0;
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+    .tag-count {
+      color: #777;
+    }
+  }
+}
+
+.leaderboard {
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  margin-bottom: 25px;
+  h4 {
+    margin-bottom: 15px;
+  }
+  &.last {
+    margin-bottom: 0;
+  }
+}
+
+// list of people on leaderboards, follows and following pages
+
+.leaderboard{
+  h3{
+    margin-bottom: 20px;
+  }
+}
+
+.people-list {
+  padding: 14px 10px 10px 10px;
+  width: 100%;
+  margin-bottom: 5px;
+  height: 80px;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  .people-list-pic {
+    margin: 0px 10px 0 0px;
+    float: left;
+    height: 55px;
+    width: 55px;
+    @include border-radius(55px);
+    overflow: hidden;
+    position: relative;
+  }
+  .people-name {
+    color: $grey;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .leaderboard-rank, .people-pc {
+    font-size: 14px;
+    line-height: 17px;
+    color: $blue;
+    display: block;
+    margin-top: -10px;
+    font-weight: 900;
+  }
+  .people-list-follow {
+    text-align: right;
+    font-size: 13px;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+  }
+  .network {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 17px;
+  }
+}
+
+.supporter-follow-details {
+  font-size: 0.9em;
+  overflow: hidden;
+  .network {
+    padding-right: 10px;
+  }
+  .addreaction, .addreaction-right, .plus, .plus-left {
+    font-size: 1em;
+  }
+}
+// alternating background color used in people list
+
+.odd {
+  background-color: #fafafa;
+}
+.topten{
+  background-color: $orange;
+  color: white;
+  .leaderboard-rank, .people-pc{
+    color: white;
+  }
+  .people-name{
+    color: white;
+  }
+}
+
+// tracking url on recruiting page
+
+#tracking_link {
+  width: 100%;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+// if a page has tags
+
+.page-tags {
+  margin-top: 15px;
+  .icon-tag {
+    display: inline-block;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+}
+
+.page-tag-background {
+  display: inline-block;
+}
+
+.page-tag {
+  text-indent: 40px;
+  background-color: $theme-color-1;
+  font-size: 11px;
+  color: white;
+  padding: 2px 5px;
+  @include border-radius(2px);
+  white-space: nowrap;
+  a {
+    color: white;
+  }
+}
+
+// site rules
+
+.rule-list {
+  padding-left: 20px;
+  li {
+    padding-bottom: 15px;
+  }
+  .rule {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  p {
+    margin: 5px 0;
+  }
+}
+
+// paid membership options
+
+ul.membership-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li.membership {
+    position: relative;
+    text-align: center;
+    list-style: none;
+    background-color: #fafafa;
+    @include border-radius(5px);
+    padding: 15px;
+    display: inline-block;
+    margin: 0 10px 15px 0;
+    width: 100%; // 236px ÷ 984px
+    h3{
+      font-weight: 300;
+    }
+    .membership-bottom {
+      background-color: #444;
+      color: #ccc;
+    }
+    strong{
+      font-weight: 700;
+    }
+    .membership-blurb {
+      padding: 15px 0;
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .buy {
+      text-align: center;
+    }
+    .badge {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-family: $button-font;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: $green;
+
+    }
+  }
+}
+
+// stat boxes on political capital and recruiting pages
+
+.stat-boxes {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .stat-box {
+    width: 105px;
+    float: left;
+    text-align: center;
+    color: white;
+    background-color: $green;
+    margin-right: 3px;
+    margin-bottom: 10px;
+    min-height: 50px;
+    .stat-box-inner {
+      padding: 15px;
+      min-height: 30px;
+      .stat {
+        margin-top: 0px;
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 700;
+        &.no-label {
+          padding: 8px;
+        }
+      }
+      .stat-box + .stat-box {
+        background: #000;
+        border-left: none;
+      }
+    }
+    .label {
+      font-size: 0.8em;
+      line-height: 1.1em;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+  }
+}
+
+// answers on faq pages
+
+.answer-wrap {
+  display: none;
+  @include border-radius(5px);
+  background-color: #fafafa;
+  padding: 15px;
+  width: 100%;
+
+  p:first-child {
+    margin: 0;
+  }
+
+  .answer-a {
+    vertical-align: center;
+    background: $green;
+    height: 25px;
+    width: 25px;
+    @include border-radius(25px);
+    font-weight: 700;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+  }
+
+  .answer {
+    width: 100%;
+    margin-top: 0;
+  }
+  .official-response {
+    font-weight: bold;
+  }
+}
+
+.page-type-calendar{
+  hr{
+    margin: 3em 0;
+  }
+  #content{
+    padding-top: 0;
+  }
+  .map{
+    height: 300px;
+    #events_map{
+      height: 300px !important;
+    }
+  }
+}
+
+.page-type-suggestion-box, .page-type-suggestion, .page-type-blog{
+  hr{
+    margin: 3em 0;
+  }
+  .answered{
+    font-size: 11px;
+    font-family: $button-font;
+    letter-spacing: 1px;
+    color: $blue;
+    text-transform: uppercase;
+  }
+  .answer-wrap{
+    display: block;
+    color: white;
+    background-color: $blue;
+  }
+  .answer .icon-up-dir:before{
+    color: $blue;
+  }
+}
+
+.answer {
+  .icon-up-dir:before {
+    margin: 0;
+    font-size: 20px;
+    line-height: 7px;
+    padding: 5px 0 0 40px;
+    color: #fafafa;
+    display: block;
+    vertical-align: bottom;
+  }
+}
+
+// list of questions on faq pages
+
+.question-list {
+  margin: 0;
+  padding: 0 0 0 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  li {
+    list-style: disc;
+    margin: 0;
+    padding: 0 0 15px 0;
+    &:last-child {
+      padding: 0;
+    }
+  }
+}
+
+.left-column-narrow {
+  .question-list {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  }
+}
+
+.faq {
+  h3{
+    font-weight: 300;
+  }
+  i{
+    color: $blue;
+    margin-left: 5px;
+  }
+}
+
+.faq .excerpt {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin: 30px 0;
+}
+
+.answer .excerpt {
+  border-bottom: none;
+  margin-bottom: 0px;
+}
+
+// share box which appears after a user submits an action
+
+.flash-share {
+  margin-top: 30px;
+  background-color: #fafafa;
+  padding: 10px 50px;
+  color: white;
+
+  h3 {
+    font-size: 35px;
+    line-height: 40px;
+    font-family: $headline-font;
+    color: $blue;
+    margin-top: 30px;
+  }
+  .share {
+    padding: 0;
+    max-width: 100%;
+    color: $blue;
+    font-weight: 500;
+  }
+}
+
+.pattern {
+  overflow: hidden;
+  & > .wrap {
+  }
+}
+
+// used to slide out off canvas nav
+
+.wrap {
+  position: relative;
+  @include transition(all 0.3s ease-out);
+  &.active {
+    right: 12em;
+  }
+}
+
+// hide one column container if these wide templates are used
+
+.page-profiles-show-wide, .page-pages-show-faq-wide, .page-pages-show-question-wide {
+  .onecolumn-container {
+    background-color: transparent;
+    padding: 0;
+    @include border-radius(0);
+    border: none;
+    margin: 0;
+  }
+  .right-column .is_following {
+    display: none;
+  }
+}
+
+// content only visible in mobile viewport
+
+.mobile-visible {
+  display: block;
+}
+
+// content only visible in desktop viewport
+
+.desktop-visible {
+  display: none;
+}
+
+.comment .form {
+  h3 {
+    font-size: 25px;
+  }
+  @include nb-clearfix;
+}
+
+// making sure google map on calendar page resizes properly
+
+#google_map {
+  img {
+    max-width: none;
+  }
+  * {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+}
+
+// share box container, shown when a user clicks the share button
+
+.share-container {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #fafafa;
+}
+
+// invoice page table
+
+td.invoice-total {
+  font-weight: bold;
+  background-color: white !important;
+  text-align: right;
+}
+
+td.invoice-quantity {
+  padding-left: 4%;
+}
+
+h4.expander-head {
+  background-color: #f3f3f3;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.fb-like-box, .fb-like-box span, .fb-like-box.fb_iframe_widget span iframe {
+  width: 100% !important;
+}
+
+.email-form {
+  white-space: nowrap;
+}
+
+// flash messages
+
+#flash {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .notice {
+    padding: 8px 14px;
+    background-color: $orange;
+    color: white;
+    font-family: $button-font;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .flash-message {
+    display: inline-block;
+  }
+  button.flash-close {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 0;
+    margin: 5px 0 0 0;
+    float: right;
+    color: #fff;
+    @include opacity(.6);
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    &:hover {
+      cursor: pointer;
+      @include opacity(1);
+    }
+  }
+  .success {
+    background-color: $green;
+  }
+  .error {
+    background-color: $orange;
+  }
+  .info {
+    background-color: $blue;
+  }
+}
+
+.petition {
+  margin-bottom: 30px;
+}
+
+// page specific tweaks
+
+.page-profiles-show {
+  .left-column {
+    .supporter-pic-left {
+      img, .pc {
+        @include border-radius(0px);
+      }
+    }
+    .supporter-pic-right {
+      font-size: 100%;
+      padding: 0 0 0 10px;
+    }
+    .progress {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.page-profiles-show-wide {
+  .right-column {
+    .progress {
+      margin-bottom: 0;
+    }
+    .bar-goal {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.page-pages-show-signup .page-tags {
+  margin-top: 20px;
+}
+
+.page-pages-show-voter-registration .iframe-wrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  position:relative;
+  left: calc(-7% - 20px);
+  width: calc(114% + 40px);
+}
+
+.user-session-form-container {
+  .oauth-links {
+    min-width: 42px;
+    margin-bottom: 20px;
+    a {
+      display: inline-block;
+      margin-bottom: 10px;
+      &.login-button-facebook {
+        width: 42px;
+        height: 42px;
+        background: url('facebook.svg');
+      }
+      &.login-button-twitter {
+        width: 42px;
+        height: 42px;
+        background: url('twitter.svg');
+      }
+    }
+  }
+  .row-fluid:after {
+    margin-bottom: 0;
+  }
+}
+
+#event_rsvp_guests_count, input.quantity {
+  width: 20%;
+}
+
+.event-detail,
+.event_detail{
+  margin: 15px 0;
+  clear: both;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.blog, .content_tags_show {
+  hr:last-child {
+    display: none;
+  }
+
+  margin: 55px 0;
+}
+
+.suggestion-page-form-expanded {
+  display: none;
+}
+
+.distance {
+  .within {
+    display: none;
+  }
+}
+
+.released-at {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.contact {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.content-pages-show-political-capital {
+  // remove if you wish to show icons on descriptions
+  [class^="icon-"] {
+    display: none;
+  }
+}
+
+.comment {
+  h3 {
+    padding-bottom: 10px;
+  }
+}
+
+.page-user-sessions-new-wide {
+  h2 {
+    font-size: 24.5px;
+    line-height: 25px;
+    text-align: center;
+  }
+}
+
+.signin-with-facebook {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+
+.signin-with-twitter {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+// forces groups of words to break together
+
+.inline-block {
+  display: inline-block;
+}
+
+// featured content slider
+
+.page-features {
+  position: relative;
+  .feature-slides {
+    position: relative;
+    height: auto!important;
+  }
+  .flex-viewport {
+    height: auto !important;
+  }
+  .slides {
+    margin: 0;
+    margin-top: 50px;
+    padding: 0;
+    list-style: none;
+    visibility: hidden;
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      display: table;
+      min-height: 450px;
+      width: 100%;
+      @include background-size(cover !important);
+      background-position:center;
+    }
+  }
+  // If you want labels to display beneath your images, remove display: none; below //
+  .flex-control-paging {
+    display: none;
+    @media (min-width: 768px) {
+    	display: block;
+  	}
+    background-color: transparent;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    bottom: 0;
+    padding: 0 0 0 50px;
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      cursor: pointer;
+      a {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background: white;
+        color: transparent;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .flex-active a {
+      display: block;
+      color: white;
+    }
+    .flex-active {
+      background-color: $theme-color-3;
+    }
+  }
+}
+
+.bottom-feature{
+  display: block;
+  width: 100%;
+  height: 320px;
+  @include background-size(cover !important);
+}
+
+// previous and next arrows on featured content slider
+
+.flex-direction-nav {
+  position: absolute;
+  top: 18%;
+  z-index: 9999;
+  width: 100%;
+  display: none;
+  li {
+    list-style: none;
+    position: absolute;
+    right:0;
+    &:first-child {
+      left: 0;
+      right: auto;
+    }
+  }
+}
+
+.flex-prev, .flex-next {
+  display: none; // hids next/prev arrows in mobile viewport
+  position: absolute; top: 41%;
+  z-index: 9999;
+  font-size: 16px;
+  padding: 15px 10px;
+  background: $theme-color-3;
+  border: 1px solid darken($theme-color-3, 10);
+  color: white;
+}
+
+.flex-prev {
+  left: 0;
+  @include border-radius-top-right(2px);
+  @include border-radius-bottom-right(2px);
+  border-left: 0;
+}
+
+.flex-next {
+  right: 0;
+  @include border-radius-top-left(2px);
+  @include border-radius-bottom-left(2px);
+  border-right: 0;
+}
+
+// pagination
+
+.pagination {
+  &.loading {
+    ul:after {
+      display: inline-block;
+      content: " ";
+      background-image: url('/assets/bert-loader-small.gif');
+      vertical-align: super;
+      width: 16px;
+      height: 11px;
+      margin-left: 12px;
+    }
+  }
+  ul {
+    @include box-shadow(none);
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.form-errors {
+  background-color: $red;
+  @include border-radius(2px);
+  color: #fff;
+  font-size: 13px;
+  line-height: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  list-style-type: none;
+  display: none;
+}
+
+// flag content form
+.flag-content {
+  margin-top: 15px;
+}
+
+// homepage widgets
+
+ul.homepage_excerpt-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li.excerpt-block {
+    list-style: none;
+    background: #f8f8f8;
+    border-bottom: 2px solid $theme-color-3;
+    @include border-radius(2px);
+    margin-bottom: 15px;
+    padding: 25px 25px;
+    overflow: hidden;
+    .event-map {
+      margin: 20px 0;
+    }
+    .event-block {
+      margin: 20px 0;
+      padding-left: 15px;
+      border-left: 3px solid #ddd;
+    }
+    .event-venue {
+      margin: 0;
+    }
+    .progress {
+      margin-bottom: 0;
+    } 
+    ul.question-list {
+      margin: 15px 0 0 15px;
+      border: none;
+    }
+    .leaderboard:last-child {
+      margin-bottom: 0;
+    }
+    .rule-list li:last-child {
+      padding: 0;
+    }
+    .byline {
+      margin-top: -10px;
+    }
+    .answer-wrap {
+      background-color: #eee;
+    }
+    .answer .icon-up-dir:before  {
+      color: #eee;
+    }
+  }
+  h3.excerpt-type {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #777;
+    font-weight: normal;
+    font-family: $font;
+    margin-bottom: 15px;
+    a {
+      color: #777;
+      text-decoration: none;
+    }
+  }
+  h4.excerpt-title {
+    font-size: 22px;
+    margin: 15px 0;
+  }
+  .continue {
+    display: block;
+    margin: 1em 0;
+  }
+}
+
+.share-dropdown {
+  margin-top: 20px;
+  .sharetable {
+    margin-left:auto;
+    margin-right: auto;
+    display:none;
+  }
+}
+
+.not-found{
+  background-color: #f9f9f9;
+  padding: 100px 0;
+  text-align: center;
+  .submit-button{
+    margin-top: 40px;
+  }
+}
+
+.content-headline{
+  font-weight: 300;
+}
+
+.vote-pledge-form{
+  h4{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .submit-link, .neutral-link, .destroy-link{
+    width: 100%;
+    margin: 0px auto;
+    display: block;
+  }
+  .submit-link{
+    background-color: $green;
+  }
+  .neutral-link{
+    background-color: $blue;
+  }
+}
+
+.page-type-voter-registration{
+  #content{
+    padding: 0;
+  }
+}
+
+.splash{
+  background: url(splash_bg_ic.jpg) no-repeat top center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  h2{
+    color: white;
+  }
+  .site-logo {
+    margin: 25px 0 25px 30%;
+  }
+
+  .site-logo header, .site-logo header.splash{
+    float: left;
+    width: 115px;
+  }
+
+  .site-logo header a{
+    background-image: url(vision_logo_green.svg);
+  }
+
+  .form{
+    margin-bottom: 30px;
+
+    .submit-button{
+      width: 100%;
+      min-height: 43px;
+      margin-top: 2px;
+    }
+  }
+
+  #content{
+    width: 75%;
+    float:left;
+    color: $blue;
+
+    .padtop{
+      padding-top: 10px;
+    }
+    .padbottom{
+      padding-bottom: 10px;
+    }
+  }
+
+  #splash-button{
+   background: #019BFA;
+   text-align: right;
+   font-size: 16px;
+   padding: 15px;
+   @media (max-width: 420px) {
+     span {
+      display: none;
+     }
+   }
+   a{
+     color: white;
+    }
+  }
+}
+
+// homepage: signup panel 
+
+.signup-panel {
+  margin: 30px 0;
+  background-color: $blue;
+  @include background-size(cover !important);
+  
+  h2 {
+    color: white;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .signin-links {
+    text-align: right;
+    color: white;
+    font-size: 14px;
+
+    a {
+      color: white;
+      font-weight: 700;
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  .panel-left {
+    background-size: cover;
+    display: block;
+    width: 100%;
+    height: 285px;
+  }
+
+  .panel-right {
+    padding: 30px;
+    display: block;
+
+    .email-signup {
+      label {
+        color: white;
+      }
+
+      input.text {
+        min-height: none;
+        height: 39px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-appearance: none;
+        width: 100%; 
+        display: inline-block;
+        background-color: transparent;
+        color: white;
+        border-bottom: 1px solid white;
+      }
+
+      .submit-button {
+        display: inline-block;
+        position: relative;
+        top: -1px;
+        width: 100%; 
+
+        &.disabled {
+          opacity: 0.45;
+        }
+      }
+    }
+  }
+
+}
+
+.profile_image{
+  @include border-radius(70px);
+}
+
+// Homepage feature panel primary
+
+.feature-panel {
+  background-color: $blue;
+  background-size: cover;
+  display: table;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+  label {
+    margin-top: 10px;
+  }
+
+  .feature-panel-left {
+      width: 100%;
+      height: 285px;
+      background-size: cover;
+      display: block;
+      background-position: center;
+  }
+
+  .feature-panel-right {
+    font-weight: 500;
+    padding: 30px;
+    display: block;
+    background-color: $orange;
+
+    h2 {
+      color: white;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    a {
+      color: #FFF;
+    }
+  }
+
+  &.home-panel {
+    &:nth-of-type(odd) {
+      .feature-panel-button {
+          background-color: $orange;
+          &:hover {
+            background-color: #FFF;
+            color: $orange;
+          }
+      }
+    }
+
+    
+    &:nth-of-type(even) {
+      .feature-panel-right {
+       // background-color: $green;
+
+        .feature-panel-button {
+          background-color: $green;
+          border: transparent;
+          &:hover {
+            background-color: #FFF;
+            color: $green;
+          }
+        }
+      }
+    }
+
+  }
+
+  &.priorities-panel {
+    position: relative;
+
+    .feature-panel-left {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: linear-gradient(-180deg, rgba(0,155,251,0.5) 0%, rgba(42,65,117,0.30) 92%, rgba(28,46,94,0.30) 100%);
+    }
+
+    .feature-panel-right {
+      z-index: 2;
+      position: relative;
+      background-color: transparent;
+
+      .feature-panel-button {
+        border: 1px solid $orange;
+        &:hover{
+          border: 1px solid #FFF;
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  &.priority-panel {
+    margin-top: 30px;
+
+    .feature-panel-left{
+    }
+
+    .feature-panel-right {
+      p {
+        color: white;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 300;
+      }
+
+      background-color: $blue;
+
+      .feature-panel-button {
+        background-color: $blue;
+        color: white;
+
+        &:hover {
+          background-color: #FFF;
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+.text-content {
+  border-top: 0;
+}
+
+.text-content-2 {
+  margin-top: 30px;
+  border-top: 1px solid $green;
+  .width-container {
+    border-top: none;
+  }
+}
+
+
+.container{  
+  max-width:1260px;
+ min-width:240px;
+ width:auto;
+ margin:auto;
+ padding:0px;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ overflow: hidden;
+}
+ 
+.megafolio-container{  
+  width:100%; 
+   position:relative;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+}
+
+// policy animations
+
+.panel {
+  margin: 6px auto;
+  width: 250px;
+  height: 250px;  
+  position: relative;
+  font-size: .8em;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+}
+.panel-icon{
+  width: 90px;
+  height: 90px;
+  margin: 0px auto 10px;
+  background-image: url(issues-sprites.svg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+/* -- make sure to declare a default for every property that you want animated -- */
+/* -- general styles, including Y axis rotation -- */
+.panel .front {
+  position: absolute;
+  top: 0;
+  z-index: 900;
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  width: 100%;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 24px;
+}
+.panel.flip .front {
+  z-index: 900;
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+.panel .back {
+  position: absolute;
+  top: 0;
+  z-index: 800;
+  width: inherit;
+  height: inherit;
+  -webkit-transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  width: 100%;
+}
+.panel.flip .back {
+  z-index: 1000;
+  -webkit-transform: rotateX(0deg) rotateY(0deg);
+  -moz-transform: rotateX(0deg) rotateY(0deg);
+}
+
+.tile{
+  padding: 20px;
+  height: 250px;
+  background: white;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(255, 255, 255); 
+  /* RGBa with 0.6 opacity */
+  background: rgba(255, 255, 255, 0.8);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF)";
+  color: $green;
+}
+
+.back{
+  .tile{
+    background: $navy;
+    color: $green;
+    font-size: 16px;
+    line-height: 25px;
+    overflow-y:scroll;
+  }
+}
+
+.panel-wrap, .infographic-wrap{
+  margin-top: 45px;
+}
+
+.infographic-wrap{
+  text-align: right;
+  img{
+    margin-bottom: 12px;
+    max-height: 506px;
+  }
+}
+
+#housing{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px 0;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px 0;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -360px 0;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -270px 0;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px 0;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-position: -540px 0;
+      }
+    }
+    &:nth-child(8){
+      .panel-icon{
+        background-position: -630px 0;
+      }
+    }
+    &:nth-child(9){
+      .panel-icon{
+        background-image: url(interim-housing.svg);
+      }
+    }
+  }
+}
+
+#rental{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -90px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -90px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -90px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -90px;
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#middle-class{
+  background-color: $navy;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -180px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -180px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -180px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -180px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -180px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -180px;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-image: url(empty-homes.svg);
+      }
+    }
+  }
+  .tile{
+    color: $navy;
+  }
+  .back{
+    .tile{
+      background: $blue;
+      color: $navy;
+    }
+  }
+}
+
+#leadership, #transportation, #climatechange, #greenspace, #food, #recognition{
+  .panel-icon{
+    background-image: url(issues-sprites-green.svg);
+  }
+}
+
+#leadership{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px 0px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px 0px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px 0px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px 0px;
+      }
+    }
+  }
+  .tile{
+    color: $green;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $green;
+    }
+  }
+}
+
+#transportation{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -90px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -90px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -90px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -90px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -90px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -90px;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-position: -540px -90px;
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#climatechange{
+  background-color: $navy;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -180px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -180px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -180px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -180px;
+      }
+    }
+  }
+  .tile{
+    color: $navy;
+  }
+  .back{
+    .tile{
+      background: $blue;
+      color: $navy;
+    }
+  }
+}
+
+#greenspace{
+  background-color: $orange;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -270px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -270px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -270px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -270px;
+      }
+    }
+  }
+  .tile{
+    color: $orange;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $orange;
+    }
+  }
+}
+
+#food{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -360px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -360px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -360px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -360px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -360px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -360px;
+      }
+    }
+  }
+  .tile{
+    color: $green;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $green;
+    }
+  }
+}
+
+#recognition{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -450px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -450px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -450px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -450px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -450px;
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#safer, #opportunity, #vulnerable, #parks, #schools, #engagement, #heritage{
+  .panel-icon{
+    background-image: url(issues-sprites-safe.svg);
+  }
+}
+
+#safer{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px 0px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px 0px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-image: url(safer-streets.svg);
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-image: url(seismic.svg);
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-image: url(pedestrian.svg);
+      }
+    }
+  }
+  .tile{
+    color: $green;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $green;
+    }
+  }
+}
+
+#opportunity{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -90px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -90px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -90px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -90px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-image: url(civic-status.svg);
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-image: url(support-gay-rights.svg);
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-image: url(child-safe-zone.svg);
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#vulnerable{
+  background-color: $navy;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -180px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -180px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -180px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -180px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -180px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-image: url(mental-health.svg);
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-image: url(slumlords.svg);
+      }
+    }
+  }
+  .tile{
+    color: $navy;
+  }
+  .back{
+    .tile{
+      background: $blue;
+      color: $navy;
+    }
+  }
+}
+
+#parks{
+  background-color: $orange;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -270px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -270px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -270px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -270px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -270px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -270px;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-position: -540px -270px;
+      }
+    }
+    &:nth-child(8){
+      .panel-icon{
+        background-position: -630px -270px;
+      }
+    }
+    &:nth-child(9){
+      .panel-icon{
+        background-position: -720px -270px;
+      }
+    }
+    &:nth-child(10){
+      .panel-icon{
+        background-position: -810px -270px;
+      }
+    }
+    &:nth-child(11){
+      .panel-icon{
+        background-position: -900px -270px;
+      }
+    }
+    &:nth-child(12){
+      .panel-icon{
+        background-position: -990px -270px;
+      }
+    }
+  }
+  .tile{
+    color: $orange;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $orange;
+    }
+  }
+}
+
+#schools{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -360px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -360px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -360px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -360px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -360px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -360px;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-position: -540px -360px;
+      }
+    }
+    &:nth-child(8){
+      .panel-icon{
+        background-position: -630px -360px;
+      }
+    }
+    &:nth-child(9){
+      .panel-icon{
+        background-position: -720px -360px;
+      }
+    }
+    &:nth-child(10){
+      .panel-icon{
+        background-position: -810px -360px;
+      }
+    }
+    &:nth-child(11){
+      .panel-icon{
+        background-position: -900px -360px;
+      }
+    }
+    &:nth-child(12){
+      .panel-icon{
+        background-position: -990px -360px;
+      }
+    }
+    &:nth-child(13){
+      .panel-icon{
+        background-position: -1080px -360px;
+      }
+    }
+    &:nth-child(14){
+      .panel-icon{
+        background-position: -1170px -360px;
+      }
+    }
+    &:nth-child(15){
+      .panel-icon{
+        background-image: url(school-system.svg);
+      }
+    }
+    &:nth-child(16){
+      .panel-icon{
+        background-image: url(int-ed.svg);
+      }
+    }
+    
+  }
+  .tile{
+    color: $green;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $green;
+    }
+  }
+}
+
+#heritage{
+  background-color: $navy;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -540px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-image: url(investing-in-chinatown.svg);
+        background-size: contain;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -540px;
+      }
+    }
+  }
+  .tile{
+    color: $navy;
+  }
+  .back{
+    .tile{
+      background: $blue;
+      color: $navy;
+    }
+  }
+}
+
+#engagement{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -450px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -450px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -450px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -450px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -450px;
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#management, #economy, #innovation{
+  .panel-icon{
+    background-image: url(issues-sprites-economy-new.png);
+  }
+}
+
+#management{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px 0px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px 0px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px 0px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px 0px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px 0px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px 0px;
+      }
+    }
+  }
+  .tile{
+    color: $green;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $green;
+    }
+  }
+}
+
+#economy{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -90px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -90px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -90px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -90px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -90px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-image: url(startups.svg);
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+      background-image: url(green-jobs.svg);
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#innovation{
+  background-color: $navy;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -180px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -180px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -180px;
+      }
+    }
+  }
+  .tile{
+    color: $navy;
+  }
+  .back{
+    .tile{
+      background: $blue;
+      color: $navy;
+    }
+  }
+}
+
+#pride, #artists, #art{
+  .panel-icon{
+    background-image: url(issues-sprites-creativity.svg);
+  }
+}
+
+#pride{
+  background-color: $green;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px 0px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px 0px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px 0px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px 0px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px 0px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px 0px;
+      }
+    }
+  }
+  .tile{
+    color: $green;
+  }
+  .back{
+    .tile{
+      background: $navy;
+      color: $green;
+    }
+  }
+}
+
+#artists{
+  background-color: $blue;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -90px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -90px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -90px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -90px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -90px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -90px;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-position: -540px -90px;
+      }
+    }
+  }
+  .tile{
+    color: $blue;
+  }
+  .back{
+    .tile{
+      background: $orange;
+      color: white;
+    }
+  }
+}
+
+#art{
+  background-color: $navy;
+  padding: 50px 0 50px;
+  h2, h5{
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+  .panel{
+    &:first-child{
+      .panel-icon{
+        background-position: 0px -180px;
+      }
+    }
+    &:nth-child(2){
+      .panel-icon{
+        background-position: -90px -180px;
+      }
+    }
+    &:nth-child(3){
+      .panel-icon{
+        background-position: -180px -180px;
+      }
+    }
+    &:nth-child(4){
+      .panel-icon{
+        background-position: -270px -180px;
+      }
+    }
+    &:nth-child(5){
+      .panel-icon{
+        background-position: -360px -180px;
+      }
+    }
+    &:nth-child(6){
+      .panel-icon{
+        background-position: -450px -180px;
+      }
+    }
+    &:nth-child(7){
+      .panel-icon{
+        background-position: -540px -180px;
+      }
+    }
+     &:nth-child(8){
+      .panel-icon{
+        background-position: -630px -180px;
+      }
+    }
+    &:nth-child(9){
+      .panel-icon{
+        background-position: -720px -180px;
+      }
+    }
+  }
+  .tile{
+    color: $navy;
+  }
+  .back{
+    .tile{
+      background: $blue;
+      color: $navy;
+    }
+  }
+}
+
+.connect-page{
+  .page-header{
+    background: url(connect-header.jpg) center no-repeat;
+    @include background-size(cover !important);
+    color: white;
+    h2{
+      color: white;
+    }
+    .page-excerpt{
+      color: white;
+    }
+    .share-dropdown{
+      display: none;
+    }
+  }
+}
+
+
+.map-container {
+  cursor: pointer;
+  .map {
+    pointer-events: none;
+  }
+}
+
+#tablet-donate-button {
+  display:none;
+}
+
+.open-accordion {
+  display:block;
+  text-align:center;
+  color:white;
+  &:hover {
+    text-decoration:underline;
+  }
+}
+
+.panel-accordion {
+  display:none;
+}
+
+.share-section {
+  text-align:center;
+  margin-top: 20px;
+  h5 {
+    color: white;
+    margin-bottom: 10px;
+  }
+  .social {
+  @include border-radius(50px);
+  width: 40px;
+  height: 40px;
+  text-align:center;
+  color: white;
+  font-size: 20px;
+  display:inline-block;
+  i {
+    vertical-align:bottom;
+  }
+    &.fb {
+      background-color: $facebook;
+      margin-right: 10px;
+      &:hover {
+        background-color: lighten($facebook, 10);
+      }
+    }
+    &.tw {
+      background-color: $twitter;
+      &:hover {
+        background-color: lighten($twitter, 10);
+      }
+    }
+    &.gp {
+      background-color: #d34836;
+      margin-left: 10px;
+      &:hover {
+        background-color: lighten(#d34836, 10);
+      }
+    }
+  }
+}
+
+label[for=face_tweet_is_twitter], label[for=face_tweet_is_facebook] {
+  margin-left: 28px;
+  display: inline-block;
+}
+
+/*label[for=face_tweet_is_twitter], label[for=face_tweet_is_facebook] {
+  display: inline-block;
+  .flash-share-checkbox {
+    display:none;
+  }
+  span {
+    color: white;
+    background: $green;
+    cursor: pointer;
+    padding: 10px 20px;
+    font: 14px "Montserrat", sans-serif;
+    color: #fff;
+    min-height: 39px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 0;
+  }
+  :checked + span {
+    background: $green;
+  }
+}*/
+
+.homepage-header-feature-image {
+  background-position: top left;
+}
+
+
+.gregor-and-team {
+  margin-top: 50px;
+  
+  .filters {
+    background: $blue;
+    color: white;
+    margin: 0 10px 30px 0;
+
+    .filter {
+      font-family: $button-font;
+      font-size: 12px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: transparent;
+      width: 19%;
+      border: 0;
+      border-left: 1px solid white;
+      text-align: center;
+      margin: 0;
+      padding: 10px 0;
+      color: white;
+      transition: all 0.1s ease-in-out; 
+      cursor: pointer;
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-right: 0;
+      }
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+  #container {
+    max-width: 1260px;
+    min-width: 250px;
+    width: auto;
+    margin: auto;
+    padding: 0px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    overflow: hidden;
+    .mix {
+      display: none;
+      &.not-hidden {
+        display: block;
+        &:nth-child(4n+5) {
+          clear:both;
+          margin-left: 0;
+        }
+      }
+      .candidate-pic {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 185px;
+        height: 185px;
+        border-radius: 250px;
+        border: 1px solid #FFF;
+        background-color: #fafafa;
+        @media (min-width: 768px) and (max-width:1100px) {
+          width: 120px;
+          height: 120px;
+        }
+      }
+      .candidate-info { 
+        font-family: $button-font;
+        padding: 10px;
+        text-align: center;
+        margin: 10px 0 50px 0;
+
+        .candidate-name, .candidate-title {
+          color: $green;
+          text-transform: uppercase;
+          font-size: 12px;
+          line-height: 22px;
+          letter-spacing: 1.5px;
+          font-weight: 700;
+          text-decoration: none;
+        }
+        .candidate-title {
+          font-weight: 400;
+        }
+      }
+    &:hover {
+        .candidate-pic {
+          border: 1px solid $blue;
+        }
+      }
+    }
+  }
+}
+
+.tabletdummy {
+  display:none;
+}
+
+.nonmainsite-donate-button {
+  display:block;
+  background-color: $orange;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-family: $button-font;
+  letter-spacing: 1px;
+  &:hover {
+    background-color: $green;
+  }
+}
+
+
+// news section at the very bottom
+
+#news {
+  margin-top: 15px;
+  border-top: 1px solid $green;
+  
+  h2 {
+    margin: 30px 0 15px 0;
+    color: $green;
+  }
+
+  h3 {
+    color: $blue;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .news-item {
+    padding: 10px;
+  }
+
+  .news-wrap{
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    line-height: 28px;
+
+    a {
+      color: #000;
+    }
+
+    .header-wrap{
+      .news-headline{
+      }
+    }
+  }
+}
+
+// team pages
+
+.candidate-pic {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin: 30px auto;
+  width: 125px;
+  height: 125px;
+  border-radius: 250px;
+  border: 1px solid $blue;
+}
