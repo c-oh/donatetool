@@ -99,99 +99,101 @@
 
           <div class="progress-stage stage-1 active" data-stageID="1">
 
-            {% if request.current_order %} {% for item in request.current_order.items %} {% if item.num_time_periods and item.time_period_type
-            %} {{ item.quantity }} {{ item.name }} @ {{ item.amount }} - billed automatically every {{ item.num_time_periods
-            }} {{item.time_period_type }} {% else %} {{ item.quantity }} {{ item.name }} @ {{ item.amount }} {% endif %}
-            {% endfor %}
-            <a href="{{ page.donation.clear_order_url }}">Clear order</a>
-            {% elsif page.donation.donation_frequency == "monthly" %} {% if page.donation.amount_in_cents != 0 %}
-            <div class="row-fluid">
-              <div class="span12 padbottomless">Your credit card will be billed automatically every month</div>
-            </div>
-            <h4 class="padbottomless">{{ page.donation.amount_formatted }}</h4>
-            {% else %}
-            <div class="row-fluid">
-              <div class="span12 padbottomless">Your credit card will be billed automatically every month</div>
-            </div>
-            <div class="radio-inline">
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="1" id="donation_amount_1">
-                <label id="label1" for="donation_amount_1" class="radio">1</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="2" id="donation_amount_2">
-                <label id="label2" for="donation_amount_2" class="radio">2</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="3" id="donation_amount_3">
-                <label id="label3" for="donation_amount_3" class="radio">3</label>
-              </span>
-              <div class="donation-other-input-container">
-                <span>
-                  <label id="label4" for="donation_amount_other">Other</label>
-                  <input type="text" name="donation[amount_option]" class="donation_amount_option user-success text" id="donation_amount_other"
+            {% if request.current_order %} 
+              {% for item in request.current_order.items %} 
+                {% if item.num_time_periods and item.time_period_type%} 
+                  {{ item.quantity }} {{ item.name }} @ {{ item.amount }} - billed automatically every {{ item.num_time_periods}} {{item.time_period_type }} {% else %} {{ item.quantity }} {{ item.name }} @ {{ item.amount }} {% endif %}
+               {% endfor %}
+               <a href="{{ page.donation.clear_order_url }}">Clear order</a>
+             {% elsif page.donation.donation_frequency == "monthly" %} 
+              {% if page.donation.amount_in_cents != 0 %}
+                <div class="row-fluid">
+                  <div class="span12 padbottomless">
+                    Your credit card will be billed automatically every month
+                  </div>
+                </div>
+               <h4 class="padbottomless">{{ page.donation.amount_formatted }}</h4>
+              {% else %}
+                <div class="row-fluid">
+                  <div class="span12 padbottomless">
+                    Your credit card will be billed automatically every month
+                  </div>
+                </div>
+                <div class="radio-inline">
+                 <span>
+                    <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="1" id="donation_amount_1">
+                    <label id="label1" for="donation_amount_1" class="radio">1</label>
+                  </span>
+                  <span>
+                    <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="2" id="donation_amount_2">
+                    <label id="label2" for="donation_amount_2" class="radio">2</label>
+                  </span>
+                  <span>
+                    <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="3" id="donation_amount_3">
+                    <label id="label3" for="donation_amount_3" class="radio">3</label>
+                  </span>
+                  <div class="donation-other-input-container">
+                    <span>
+                      <label id="label4" for="donation_amount_other">Other</label>
+                      <input type="text" name="donation[amount_option]" class="donation_amount nb_donation_v2_amount user-success text" id="donation_amount_other"
                     placeholder="0.00">
-                </span>
-              </div>
-
-
+                   </span>
+                  </div>
             </div>
-            {% endif %} {% else %} {% if page.donation.max_installments > 1 %}
-            <label for="num_installments" class="padbottomless">I want to pay the following in {% collection_select "num_installments", page.donation.installment_collection,
-              class:"select" %} installments</label>
-            {% endif %} {% if page.donation.amount_in_cents != 0 %}
-            <h4 class="padbottomless">{{ page.donation.amount_formatted }}</h4>
+            {% endif %} 
+            
             {% else %}
-            <div class="radio-inline padbottomless">
+              {% if page.donation.max_installments > 1 %}
+               <label for="num_installments" class="padbottomless">I want to pay the following in {% collection_select "num_installments", page.donation.installment_collection,
+                class:"select" %} installments</label>
+              {% endif %}
+            
+              <h4 class="padbottomless">{{ page.donation.amount_formatted }}</h4>
+            <div class="radio-inline padbottomless donation-v2-amounts">
               <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="1" id="donation_amount_1">
+                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="1" id="donation_amount_1">
                 <label id="label1" for="donation_amount_1" class="radio">1</label>
               </span>
               <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="2" id="donation_amount_2">
+                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="2" id="donation_amount_2">
                 <label id="label2" for="donation_amount_2" class="radio">2</label>
               </span>
               <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="3" id="donation_amount_3">
+                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="3" id="donation_amount_3">
                 <label id="label3" for="donation_amount_3" class="radio">3</label>
               </span>
               <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="4" id="donation_amount_4">
+                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="4" id="donation_amount_4">
                 <label id="label4" for="donation_amount_4" class="radio">4</label>
               </span>
               <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="5" id="donation_amount_5">
+                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="5" id="donation_amount_5">
                 <label id="label5" for="donation_amount_5" class="radio">5</label>
               </span>
               <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option" value="6" id="donation_amount_6">
+                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="6" id="donation_amount_6">
                 <label id="label6" for="donation_amount_6" class="radio">6</label>
               </span>
               <div class="donation-other-input-container">
 
                 <label id="label4" for="donation_amount_other">Other</label>
-                <input type="text" name="donation[amount_option]" class="donation_amount_option user-success text" id="donation_amount_other"
-                  placeholder="0.00">
+                <input type="text" name="donation[amount]" class="user-success text nb_donation_v2_amount" id="donation_amount_other_input"
+                  placeholder="0.00" style="width: auto;">
 
               </div>
 
             </div>
-            {% endif %} {% endif %}
-            <!--shows the total amount -->
-            <span>
 
-              <span>{{ page.donation_v2.currency_symbol }}</span>
-              <span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
+            
+            {% endif %}
 
-              <span>{{ page.donation_v2.currency_symbol }}</span>
-              <span class="nb_donation_v2_amount">Please select an amount</span>
-              {% if page.donation_v2.donation_frequency == "one-time" %} {% elsif page.donation_v2.donation_frequency == "monthly"%}
-              <div class="nb_donation_v2_interval" data-placeholder="paid monthly">paid monthly</div>
-              {% else %}
-              <div class="nb_donation_v2_interval" data-placeholder="paid monthly">{% if page.donation_v2.interval_monthly? %}paid monthly{% endif %}</div>
-              {% endif %}
-            </span>
-            <!--shows the total amount -->
+            <!--shows donation abmount-->
+            {% if page.donation_v2.confirmation_amount %}
+              <span>{{ page.donation_v2.currency_symbol }}</span><span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
+            {% else %}
+              <span>null</span>
+            {% endif %}
+          <!--shows donation abmount-->
 
             <div class="padtop">
               <span class="progress-stage-button-next button">Continue</span>
@@ -212,8 +214,8 @@
               <div class="row-fluid">
 
                 <div class="span12">
-                  {% text_field "billing_address.address1", class:"text", placeholder:"Address 1" %} 
-                  {% text_field "billing_address.address2", class:"text", placeholder:"Address 2" %} 
+                  {% text_field "billing_address.address1", class:"text", placeholder:"Address 1" %} {% text_field "billing_address.address2",
+                  class:"text", placeholder:"Address 2" %}
                 </div>
 
               </div>

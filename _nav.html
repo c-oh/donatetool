@@ -1,0 +1,101 @@
+  {% if request.template == "pages_show_donation_wide" or request.template == "pages_show_donation_v2_wide" or request.template == "user_sessions_new_wide" or request.template == "users_password_resets_new" or request.template == "users_passwords_new_wide" or request.template == "users_password_resets_new_wide" or request.template == "users_accounts_new_wide" or request.template == "users_accounts_new" or request.template == "users_activations_new_wide" or request.template == "pages_show_unsubscribe" or request.template == "pages_show_unsubscribe_wide" %}
+
+    {% if page.is_homepage? and site.slug == "" %}
+    {% else %}
+    <a href="/" class="home-menu"><i class="fa fa-chevron-circle-left"></i>Back <span>to home</span></a>
+    {% endif %}
+
+  {% else %}
+
+  <nav id="menu" role="navigation">
+    <div class="social-links">
+      <div class="social-link">
+        <a href="http://www.facebook.com/VisionVancouver"><i class="fa fa-facebook-f"></i></a>
+      </div>
+      <div class="social-link">
+        <a href="http://www.twitter.com/VisionVancouver"><i class="fa fa-twitter"></i></a>
+      </div>
+      <div class="social-link">
+        <a href="http://instagram.com/visionvancouver"><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <ul id="topnav" class="topnav desktop-nav">
+      {% for child in site.root_nav_pages %}
+      {% if child.leaf? or child.nav_children.size == 0 %}
+          <li class="{{ child.slug }}{% if child.is_or_is_ancestor_of_current_page? %} active{% endif %}">
+          <a href="{{ child.url }}"> {{ child.name }}</a>
+        </li>
+
+      {% else %}
+      <li class="{% if child.is_or_is_ancestor_of_current_page? %}active{% endif %} drop">
+        {% if child.slug == "get_involved" or child.slug == "news" or child.slug == "issues" %}
+          <a>{{ child.name }} <i class="icon-angle-down"></i></a>
+        {% else %}
+          <a href="{{ child.url }}">{{ child.name }} <i class="icon-angle-down"></i></a>
+        {% endif %}
+        <ul class="sub">
+          {% if site.show_parent_in_nav_dropdown? %}
+          <li class="show-parent"><a href="{{ child.url }}">{{ child.name }}</a></li>
+          {% else %}
+          {% if child.slug != "issues" and child.slug != "news" and child.slug != "get_involved" %} <li class="show-parent mobile-visible"><a href="{{ child.url }}">{{ child.name }}</a></li>{% endif %}
+          {% endif %}
+          {% for child2 in child.nav_children %}
+          <li><a href="{{ child2.url }}">{{ child2.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endif %}
+      {% endfor %}
+      
+      <li class="supporter-nav-menu drop"><a href="">MORE <i class="fa fa-bars"></i></a>
+        <ul class="supporter-nav-menu-sub sub">
+          {% for child in site.supporter_pages %}
+          <li><a href="{{ child.url }}">{{ child.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <a href="#menu" class="menu-link"><i class="icon-menu"></i></a>
+  {% endif %}
+
+  {% comment %}
+        <li class="{{ child.slug }}{% if child.is_or_is_ancestor_of_current_page? %} active{% endif %}">
+        <a href="{% assign has_donate = false %}
+        {% if child.slug != 'donate' %}
+          {{ child.url }}
+        {% else %}
+          {% if page.slug == 'gregor_robertson' %}
+            /donate
+          {% else %}
+            {% if page.parent.slug == 'gregor_and_the_vision_team' %}
+              {% for candidate_child in page.children %}
+                {% if candidate_child.slug contains 'donate' %}
+                  {% assign has_donate = true %}
+                {% endif %}
+              {% endfor %}
+              {% if has_donate %}
+                /{{page.slug}}_donate
+              {% else %}
+                /donate
+              {% endif %}
+            {%elsif page.parent.parent.slug == 'gregor_and_the_vision_team' %}
+              {% for candidate_child in page.parent.children %}
+                {% if candidate_child.slug contains 'donate' %}
+                  {% assign has_donate = true %}
+                {% endif %}
+              {% endfor %}
+              {% if has_donate %}
+                /{{page.parent.slug}}_donate
+              {% else %}
+                /donate
+              {% endif %}
+            {% else %}
+              /donate
+            {%endif%}
+          {%endif%}
+        {%endif%}">{{ child.name }}</a>
+      </li>
+  {% endcomment %}

@@ -106,7 +106,7 @@ blockquote {
   }
 }
 
-.page-type-donation{
+.page-type-donation-v2{
   .page-header, #intro, #stream, #content{
     .width-container{
       max-width: none;
@@ -151,7 +151,7 @@ blockquote {
   float: left;
 }
 
-.page-type-donation {
+.page-type-donation-v2{
   .site-logo {
     float: none;
   }
@@ -647,7 +647,7 @@ ul#page-stream {
 .tabletdummy {
   display:block;
 }
-.page-type-donation {
+.-v2 {
   background-position: center;
 }
 
