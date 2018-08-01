@@ -187,14 +187,6 @@
             
             {% endif %}
 
-            <!--shows donation abmount-->
-            {% if page.donation_v2.confirmation_amount %}
-              <span>{{ page.donation_v2.currency_symbol }}</span><span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
-            {% else %}
-              <span>null</span>
-            {% endif %}
-          <!--shows donation abmount-->
-
             <div class="padtop">
               <span class="progress-stage-button-next button">Continue</span>
             </div>
@@ -421,6 +413,15 @@
 
                   {% endif %}
                 </div>
+
+                <!--show stuff-->
+                <label for="donation_amounts">Amount</label><br/>
+                  {% if page.donation_v2.confirmation_amount %}
+                    <span>{{ page.donation_v2.currency_symbol }}</span><span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
+                  {% else %}
+                    <span class="hidden">{{ page.donation_v2.currency_symbol }}</span><span class="nb_donation_v2_amount">Please select an amount</span>
+                  {% endif %}
+                <!--end show stuff-->
 
                 <div class="padtop">
                   {% submit_tag "Process Donation", class:"submit-button" %}
