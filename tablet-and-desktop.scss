@@ -1,0 +1,1190 @@
+/* ===================================================================================
+   This is the tablet and desktop stylesheet. It applies to viewports above 768px.
+   For the mobile first stylesheet which applies to all screen widths, see theme.scss.
+   =================================================================================== */
+
+//* style variables *//
+
+// headline font
+$headline-font: 'Roboto Slab', serif;
+
+// main font
+$font: 'Roboto', sans-serif;
+
+// button font
+$button-font: 'Montserrat', sans-serif;
+
+$orange: #f96e4e;
+$green: #67c340;
+$navy: #1c2e5d;
+$blue: #009cfb;
+$grey: #3c3c3c;
+$royal-blue: #004789;
+$medium-blue: #0175ba;
+$menu-gray: #EEEEEE;
+
+$facebook: #3b5998;
+$twitter: #00aced;
+
+$theme-color-1: $orange;
+$theme-color-2: $green;
+$theme-color-3: $blue;
+$theme-color-4: $navy;
+
+// form input area focus color
+$theme-color-5: rgba(0,0,0,.2);
+
+// general success and error colors
+$red: $orange;
+
+// border-radius mixin
+@import "border_radius";
+
+// fluid grid for tablet
+@import "grid-tablet";
+
+//compass css3 mixins
+@import "compass/css3";
+
+//mobile nav
+@import "mobile-nav";
+
+blockquote {
+  width: 50%;
+  margin-right: -150px;
+  border: 0;
+  border-left: 4px solid $blue;
+  margin-left: 20px;
+  padding: 0;
+  padding-left: 20px;
+  float: center;
+  p {
+      margin: 0;
+  }
+} 
+
+// page layout if the sidebar is turned on
+
+.twocolumn-container {
+  .left-column, .right-column-wide {
+    float: left;
+    width: 68.2261208577%;
+    // 710px ÷ 1026px
+    margin-right: 1.559454191033%;
+    // 16px ÷ 1026px
+    margin-bottom: 0;
+  }
+  .right-column, .left-column-narrow {
+    float: left;
+    width: 30.214424951267%;
+    // 310px ÷ 1026px
+    margin-bottom: 0;
+  }
+  .right-column-wide {
+    margin-right: 0;
+  }
+  .left-column-narrow {
+    margin-right: 1.559454191033%;
+    // 16px ÷ 1026px
+  }
+}
+
+.intro {
+   p {
+      font-size: 18px;
+      line-height: 28px;
+   }
+   &.donation {
+    padding: 0 50px;
+   }
+
+} 
+
+#content {
+  .width-container {  
+    padding: 0 50px;
+  }
+}
+
+.page-type-donation{
+  .page-header, #intro, #stream, #content{
+    .width-container{
+      max-width: none;
+    }
+  }
+  .page-pages-show-donation-v2-wide{
+    .radio-inline {
+      label.radio {
+        width: 110px;
+      }
+    }
+  }
+}
+
+// page header
+
+.page-header {
+  .width-container {
+      padding: 0 50px;
+      
+      h2 {
+        margin: 70px 0 50px 0;
+      }
+      p{
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+// wraps every page headline
+
+#headline, .headline {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+// wraps your site name or site logo
+
+.site-logo {
+  width: 115px;
+  height: 102px;
+  float: left;
+}
+
+.page-type-donation {
+  .site-logo {
+    float: none;
+  }
+}
+
+// site wide footer
+
+footer {
+  .footer-right {
+    margin-top: 0;
+    text-align: right;
+  }
+  .row-fluid [class*="span"] {
+    min-height: 0;
+  }
+}
+
+// hides off canvas nav
+
+.wrap.active {
+  left: 0;
+}
+
+.sharetable {
+  display: block;
+  width: 487px;
+  .facebook-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 320px;
+  }
+  .twitter-cell {
+    float: left;
+    text-align: left;
+    padding: 0 20px 0 0;
+    vertical-align: top;
+    width: 75px;
+  }
+  .gplus-cell {
+    float: left;
+    text-align: left;
+    vertical-align: top;
+    width: 52px;
+  }
+}
+
+.mobile-visible {
+  display: none;
+}
+
+.desktop-visible {
+  display: block;
+}
+
+.flash-share {
+  .float {
+    float: right;
+  }
+}
+
+// icon which activates off canvas nav
+
+.menu-link {
+  display: none;
+}
+
+// top nav with drop downs
+/*
+@media only screen and (min-width : 1024px) {
+*/
+  nav{
+    text-align: right;
+  }
+
+  
+  nav, .subnav {
+    background-color: transparent;
+    border-right: 0;
+    border-top: 0;
+    float: right;
+    height: auto;
+    max-width: 88.0859375%;
+    margin-top: 25px;
+    position: static;
+    width: auto;
+    .social-links {
+      display:inline-block;
+      margin: 10px 3px;
+    }
+    .topnav {
+      margin: 0;
+      padding: 0;
+      clear: both;
+      list-style: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      &.nonmainsite-nav {
+        display:inline-block;
+      }
+    }
+ 
+    li {
+      background-color: transparent;
+      display: inline-block;
+      margin: 0 0px 10px 0;
+      position: relative;
+      border: 0;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #000;
+        padding: 6px 15px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover, &.active{
+        border-color: transparent;
+        a {
+          color: $green;
+        }
+      }
+    }
+    .drop{
+      &:hover{
+        background-color: $menu-gray;
+        a {
+          color: #000;
+        }
+      }
+    }
+    /* controls bg color of top when hovering on sub */
+    .sub {
+      text-align: left;
+      position: absolute;
+      top: 42px;
+      z-index: 99999;
+      background-color: $menu-gray;
+      padding: 8px 0 5px 0;
+      width: 200px;
+      display: none;
+      &.supporter-nav-menu-sub {
+        right: 0;
+      }
+    }
+    .sub li {
+      width: 100%;
+      border: none;
+      color: #000;
+      font-size: 13px;
+      line-height: 18px;
+      display: block;
+      background-color: transparent;
+      border-color:transparent;
+      @include border-radius(0);
+
+      &.mobile-visible {
+        display: none;
+      }
+    }
+    .sub a {
+      background: none;
+      padding: 5px 20px 5px 22px;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+
+  .home-menu{
+    float: left;
+    font-size: 16px;
+  }
+
+  #language-nav{
+    font-size: 12px;
+    color: $grey;
+    display:inline-block;
+    li {
+      margin: 0 0 10px 0;
+      a{
+        color: $grey;
+        padding: 0 5px;
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+  }
+
+  .languages.drop:hover {
+    background-color: $medium-blue;
+  }
+
+  // navigation shown if a page has more than one subpage
+
+  .subnav-container{
+    padding: 34px 0;
+    background-color: $green;
+    background-image: url(green-background-1.png);
+    background-position: center;
+    background-repeat: repeat-x;
+    color: #fff;
+  }
+
+  .subnav {
+    margin: 0;
+    padding: 0;
+    float: left;
+    clear: both;
+    font-size: 14px;
+    max-width: 100%;
+    li{
+      color: white;
+      margin: 0;
+      font-weight: 500;
+      a{
+        color: white;
+        padding: 0px 21px;
+      }
+      &:hover, &:active{
+        font-weight: 700;
+        background-color: transparent !important;
+        color: white;
+        a{
+          color: white;
+        }
+      }
+    }
+    li.active a{
+      color: white !important;
+      font-weight: 700;
+      i{
+        color: $orange;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .desktop-nav {
+    li:hover .sub {
+      display: block;
+    }
+  }
+
+/*}*/
+
+// follow page link shown in page stream
+
+.page-follow {
+  float: right;
+  margin-top: -35px;
+}
+
+// inline radio buttons and check boxes
+
+.radio-inline, .checkbox-inline {
+  span {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin: 0 !important;
+    display: inline-block;
+  }
+  input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
+    background-color: transparent;
+    color: #505054;
+  }
+  label {
+    display: block;
+  }
+  label.radio, label.checkbox {
+    .option_label {
+      display: inline;
+    }
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: auto;
+    background-color: transparent;
+    font-family: $font;
+    color: #505054;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+    padding: 0;
+    margin: 0 10px 10px 5px;
+  }
+  label.checkbox {
+    position: relative;
+    padding: 0;
+    height: auto;
+    font-size: inherit;
+    margin: 0;
+  }
+ &.checkbox-inline {
+    vertical-align: top;
+    li {
+      width: auto;
+      label {
+        width: auto;
+      }
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// inline radio buttons
+
+.radio.inline, .checkbox.inline, .inline label.radio {
+  display: inline-block;
+  margin-right: 20px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border: 0;
+  padding: 0;
+  @include box-shadow(0);
+}
+
+// wraps credit card icons
+
+.cc {
+  padding-bottom: 10px;
+}
+
+// paid membership options
+
+ul.membership-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  li.membership {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 1.22% 1.22% 0;
+    width: 31.8%;
+    height: 250px;
+    .buy {
+      position: absolute;
+      width: auto;
+      bottom: 15px;
+      left: 50%;
+      a{
+        position: relative;
+        left: -50%;
+      }
+    }
+  }
+}
+
+// featured content slider
+
+.page-features {
+  position: relative;
+  .slides{
+    li{
+      background-position: center left !important;
+    }
+  }
+}
+
+.bottom-feature{
+  height: 470px;
+}
+
+.flex-direction-nav {
+  top: 36%;
+}
+
+.flex-prev, .flex-next {
+  display: block;
+  height: 58px;
+  font-size: 25px;
+}
+
+// inline sign in form
+
+.user-session-form-container {
+  .oauth-links {
+   margin-bottom: 0;
+  }
+  .sign-in-with-email, .sign-up {
+    padding-left: 2.7624309392265194%;
+  }
+}
+
+.review-rules {
+  float: right;
+  font-size: 12px;
+  padding: 0;
+}
+
+// page specific styles
+
+.page-user-sessions-new-wide, .page-users-accounts-new-wide, 
+.page-users-password-resets-new-wide, .page-users-passwords-new-wide, 
+.page-users-activations-new-wide {
+	.site-logo {
+    float: none;
+  }
+  .onecolumn-container {
+    margin: 0 auto;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 45px 0;
+  }
+  footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.page-pages-show-voter-registration .iframe-wrapper {
+  left: 0;
+  width: 100%;
+}
+
+#event_rsvp_guests_count, input.quantity, #signup_donations_to_raise_amount {
+  width: 25%;
+}
+
+.suggestion-tag-list {
+  li {
+    margin: 15px 15px 10px 0;
+  }
+}
+
+input#donation_amount_other {
+  width: 30%;
+}
+
+.distance {
+  .within {
+    position: relative;
+    top: 2px;
+    display: inline;
+    padding-right: 5px;
+  }
+}
+
+.page-user-sessions-new-wide {
+  h2 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+}
+
+// inline formatting for name, activity type and date in page stream for tablet and desktop view
+
+ul#page-stream {
+  li.activity  {
+    span + a {
+    display: inline;
+    } 
+  }
+  .activity-time {
+    display: inline;
+  }
+  .timeago {
+    display: inline;
+    padding-right: 0;
+    float: none;
+    color: inherit;
+  }
+  .activity_links a {
+    display: inline;
+  }
+  .activity_content {
+    clear: none;
+  }
+}
+
+// Tablet only
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+// off canvas nav to be used on tablets, since drop downs don't work on touch devices
+
+.tabletdummy {
+  display:block;
+}
+.page-type-donation {
+  background-position: center;
+}
+
+  blockquote{
+    width: 50%;
+    margin-right: 0px;
+    border: 0;
+    border-left: 4px solid $medium-blue;
+    margin-left: 20px;
+    padding: 0;
+    padding-left: 20px;
+    float: right;
+    p{
+      margin: 0;
+    }
+  }
+
+  .page-header, #intro, #stream {
+    .width-container{
+      max-width: none;
+    }
+  }
+
+  .feature-panel-right {
+    h2 {      
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  // featured content slider
+
+  .page-features {
+    position: relative;
+    .slides{
+      li{
+        height: 470px;
+        background-position: center !important;
+      }
+    }
+  }
+
+  iframe[src *= 'youtube'] {
+    display: none;
+  }
+
+  .responsive-embed-wrapper iframe {
+    display: block;
+  }
+
+  .fb-like-box iframe {
+    display: block;
+  }
+
+  header {
+    padding: 28px 0 0 0;
+    max-width: 78%;
+  }
+
+// replaces the subnav with breadcrumbs, as dropdowns don't work in touch devices
+
+  .tablet-visible {
+    display: block;
+  }
+
+  .desktop-visible {
+    .subnav-container {
+      display: none;
+    }
+  }
+
+  #tablet-donate-button {
+    display:block;
+    float:right;
+    background-color: $orange;
+    color: white;
+    margin-top: 40px;
+    padding: 6px 30px;
+    color: white;
+    font-size: 12px;
+    font-family: $button-font;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: $green;
+    }
+  }
+
+  .gregor-and-team {
+    #container {
+      text-align:center;
+    }
+  }
+
+  .panel-wrap {
+    text-align:center;
+  }
+  .panel {
+    float:none !important;
+    display:inline-block;
+    text-align:left;
+  }
+  .topnav.nonmainsite-nav {
+    display:block !important;
+  }
+  .nonmainsite-donate-button {
+    display: none !important;
+  }
+}
+
+
+// Desktop above 1140px styles
+
+@media only screen and (min-width: 1140px) {
+
+  // maximum side width container
+
+  .width-container {
+    width: 1026px; /* 1140px - 10% for margins */
+    margin: 0 auto;
+  }
+
+  // paid membership options
+
+  ul.membership-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li.membership {
+      position: relative;
+      float: left;
+      text-align: center;
+      list-style: none;
+      background-color: #fafafa;
+      @include border-radius(2px);
+      padding: 15px;
+      display: inline-block;
+      margin: 0 1.22% 1.22% 0;
+      width: 31.8%;
+      height: 250px;
+      .membership-bottom {
+        background-color: #444;
+        color: #ccc;
+      }
+      .membership-blurb {
+        padding: 15px 0;
+        font-size: 13px;
+        line-height: 16px;
+      }
+      .buy {
+        position: absolute;
+        width: auto;
+        bottom: 15px;
+        left: 50%;
+        .submit-button{
+          position: relative;
+          left: -50%;
+        }
+      }
+      .badge {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+}
+
+.vote-pledge-form{
+  .submit-link, .neutral-link, .destroy-link{
+    width: 240px;
+  }
+}
+
+.splash{
+  .site-logo {
+    width: 100%;
+    margin-right: 0;
+  }
+  #content {
+    width: 100%;
+    float:none;
+  }
+  #content .width-container{
+    margin-right: 0;
+    max-width: 500px;
+    clear: both;
+    float: left;
+  }
+}
+
+.email-signup{
+  .offset1{
+    margin-left: 8.51063829787234%;
+  }
+}
+
+.page-pages-show-recruiting-wide, page-pages-show-recruiting{
+  #content{
+    .width-container{
+      max-width: 830px;
+      padding: 0 50px;
+    }
+  }
+}
+
+// policy animations
+
+.panel-wrap{
+  display: block;
+}
+.panel {
+  margin-right: 6px;
+  margin-bottom: 6px;
+  margin-top: 0;
+  float: left;
+}
+
+#housing, #rental, #middle-class, #leadership, #transportation, #climatechange, #greenspace, #food, #recognition, #safer, #opportunity, #vulnerable, #parks, #schools, #engagement, #management, #economy, #innovation, #pride, #artists, #art, #heritage{
+  @include background-size(cover !important);
+}
+
+#rental{
+  .panel{
+    &:nth-child(2){
+      margin-right: 0;
+    }
+  }
+}
+
+#housing{
+  background: url(housing-bg.jpg) top center no-repeat;
+}
+#heritage{
+  background: url(heritage-bg.jpg) top center no-repeat;
+}
+#rental{
+  background: url(rental-bg.jpg) top center no-repeat;
+  .panel-wrap{
+    width: 50%;
+    float: left;
+  }
+  .infographic-wrap{
+    width: 50%;
+    float: right;
+  }
+}
+#middle-class{
+  background: url(middleclass-bg.jpg) top center no-repeat;
+}
+#leadership{
+  background: url(leadership-bg.jpg) top center no-repeat;
+}
+#transportation{
+  background: url(transportation-bg.jpg) top center no-repeat;
+}
+#climatechange{
+  background: url(climatechange-bg.jpg) top center no-repeat;
+}
+#greenspace{
+  background: url(greenspace-bg.jpg) top center no-repeat;
+}
+#food{
+  background: url(food-bg.jpg) top center no-repeat;
+  .panel-wrap{
+    width: 50%;
+    float: left;
+  }
+  .infographic-wrap{
+    width: 50%;
+    float: right;
+  }
+}
+#recognition{
+  background: url(recognition-bg.jpg) top center no-repeat;
+}
+#safer{
+  background: url(safer-bg.jpg) top center no-repeat;
+}
+#opportunity{
+  background: url(opportunity-bg.jpg) top center no-repeat;
+  .panel-wrap{
+    width: 50%;
+    float: left;
+  }
+  .infographic-wrap{
+    width: 50%;
+    float: right;
+  }
+}
+#vulnerable{
+  background: url(vulnerable-bg.jpg) top center no-repeat;
+}
+#parks{
+  background: url(parks-bg.jpg) top center no-repeat;
+}
+#schools{
+  background: url(schools-bg.jpg) top center no-repeat;
+}
+#engagement{
+  background: url(engagement-bg.jpg) top center no-repeat;
+}
+#management{
+  background-image: url(management-bg.jpg);
+  background-position: top center; 
+  background-repeat: no-repeat;
+  .panel-wrap{
+    width: 50%;
+    float: left;
+  }
+  .infographic-wrap{
+    width: 50%;
+    float: right;
+  }
+}
+#economy{
+  background: url(economy-bg.jpg) top center no-repeat;
+}
+#innovation{
+  background: url(innovation-bg.jpg) top center no-repeat;
+}
+#pride{
+  background: url(pride-bg.jpg) top center no-repeat;
+  .panel-wrap{
+    width: 50%;
+    float: left;
+  }
+  .infographic-wrap{
+    width: 50%;
+    float: right;
+  }
+}
+
+#artists{
+  background: url(artists-bg.jpg) top center no-repeat;
+}
+#art{
+  background: url(art-bg.jpg) top center no-repeat;
+}
+
+.links-candidate {
+  text-align:center; 
+}
+
+.volunteer-candidate, .donate-candidate, .facebook-candidate, .twitter-candidate {
+  font-family: $button-font;
+  color: $green;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 30px;
+  width: 165px;
+  background-color: $blue;
+
+  &:hover{
+    background: $green;
+  }
+  a {
+    transition: background-color 0.3s ease;
+    display:block;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+  }
+}
+
+.twitter-candidate{
+  margin-right: 0;
+}
+
+@media only screen and (max-width:1024px) and (orientation : landscape) {
+
+  nav{
+    .social-links {
+      vertical-align: middle;
+      text-align: left;
+      margin: 10px;
+    }
+    #language-nav {
+      display: none;
+    }
+
+    .languages {
+      display:block;
+    }
+  }
+}
+
+
+.open-accordion {
+  display:none;
+}
+
+.panel-accordion {
+  display:block;
+}
+
+.homepage-header-feature-image {
+  background-position: top;
+}
+
+#top-social-links {
+  display:none;
+}
+
+@media only screen and (max-width: 1000px) { 
+  .news-content {
+    display:none !important;
+  }
+}
+
+.gregor-and-team {
+  #container {
+    .mix.break {
+      margin-left: 0;
+      clear: both;
+    }
+  }
+}
+
+.nonmainsite-donate-button {
+  display:inline-block;
+  padding: 6px 30px;
+}
+
+
+// Homepage signup
+
+.signup-panel {
+  display: table;
+  background-color: $blue;
+  @include background-size(cover !important);
+  
+  h2{
+    color: white;
+    font-weight: 400;
+  }
+
+  .signin-links {
+    text-align: right;
+    color: white;
+    font-size: 14px;
+    a{
+      color: white;
+      font-weight: 700;
+    }
+  }
+
+  a {
+    color: white;
+  }
+
+  .panel-left {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+    background-size: cover;
+  }
+
+  .panel-right {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 50px;
+  }
+}
+
+// Homepage feature panel primary
+
+.feature-panel {
+   background-position: center center;
+   height: 450px;
+   display: table;
+   margin-bottom: 30px; 
+
+   .feature-panel-left {
+      width: 50%;
+      height: 285px;
+      background-size: cover;
+      display: table-cell;
+      background-position: center center;
+      vertical-align: middle;
+   }
+
+   .feature-panel-right {
+      font-weight: 400;
+      padding: 50px;
+      background-color: transparent;
+      display: table-cell;
+      width: 50%;
+      vertical-align: bottom;
+   }
+
+   &.home-panel {  
+     &:nth-of-type(even) {
+         background-position: center center;
+         .feature-panel-button {
+            background: #FFF;
+            border: 1px solid #FFF;
+            color: #FFF;
+
+            &:hover {
+               background-color: $green;
+               border: 1px solid $green;
+               color: #FFF;
+            }
+         }
+      }
+
+      &:nth-of-type(odd) {
+         .feature-panel-button {
+            background: $blue;
+            border: 1px solid $blue;
+            color: #FFF;
+
+            &:hover {
+               background-color: #FFF;
+               border: 1px solid #FFF;
+               color: $blue;
+            }
+         }
+      }
+      .feature-panel-left:nth-of-type(odd) {
+         background-image: none !important;
+      }
+   }
+}
+
+// hr
+
+.page-type-calendar, 
+.page-type-suggestion-box, 
+.page-type-suggestion, 
+.page-type-blog {
+  hr{
+    margin: 3em -50px;
+  }
+}

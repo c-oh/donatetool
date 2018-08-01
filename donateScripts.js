@@ -21,6 +21,7 @@ var askInc2 = ask*3;
 var askInc3 =ask*4;
 var askInc4 =ask*5;
 var askInc5 =ask*6;
+var askInc6 =ask*7;
 
 document.getElementById("donation_amount_2").value = askInc1;
 document.getElementById("label2").innerText = askInc1;
