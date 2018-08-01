@@ -1,0 +1,118 @@
+{% comment %}
+<style>
+  @media only screen and (max-width:470px) {
+    #page-features {
+      height:246px;
+    }
+    .hp-feature-gradient {
+      background-image:linear-gradient(to bottom, transparent, transparent 30%, #1c2e5d 80%);
+      width:100%;
+      height:470px;
+    }
+    .hp-feature-content {
+      text-align:left;
+      float:left;
+      margin-top:200px;
+      color:white;
+    }
+    .hp-feature-content p {
+      font-family:'Roboto Slab', serif;
+      font-size: 28px;
+      line-height: 28.8px;
+      font-weight: 300;
+      margin-bottom: 50px;
+    }
+    .hp-feature-content a {
+      font-family:'Montserrat', sans-serif;
+      color:#67c340;
+      margin:10px 0;
+      text-align:right;
+      text-transformation: uppercase;
+      display:block;
+    }
+    .page-features .slides li {
+      height: 470px;
+    }
+    .flex-direction-nav {
+      display:none;
+    }
+  }
+  @media only screen and (min-width:768px) {
+    .hp-feature-gradient {
+      background-image:linear-gradient(to right, transparent, transparent 50%, #1c2e5d);
+      width:100%;
+      height:100%;
+    }
+    .hp-feature-content {
+      text-align:right;
+      width:470px;
+      float:right;
+      margin-top:5%;
+      color:white;
+    }
+    .hp-feature-content p {
+      font-family:'Roboto Slab', serif;;
+      font-size: 36px;
+      line-height: 43px;
+      font-weight: 300;
+    }
+    .hp-feature-content a {
+      font-family:'Montserrat', sans-serif;
+      color:#67c340;
+      margin:10px 0;
+      text-transformation:
+      uppercase;
+      display:block;
+    }
+    .page-features .flex-control-paging {
+      display:block;
+      position: absolute;
+      bottom: 1%;
+      right: 1%;
+      background-color: transparent;
+      line-height: 20px;
+      height:20px;
+    }
+    .page-features .flex-control-paging li a {
+      border-radius: 50px;
+      background-color: #3c3c3c;
+      color: transparent;
+      padding: 0 5px;
+    }
+    .flex-direction-nav {
+      display:none;
+    }
+  }
+</style>
+{% endcomment %}
+
+
+  {% if page.features_count > 0   and page.type_name != "Donation"%}
+
+  {% if page.features.size > 0 and page.type_name != "Donation" %}
+
+  <div id="page-features" class="page-features" style="max-height: {{ first_feature_height  }}px">
+    <div id="feature-slides" class="feature-slides">
+
+      <ul class="slides clearfix" >
+        {% for feature in page.features %}
+        <li class="feature-panel priorities-panel" style="background-image:url({{ feature.image_url }})">
+          <div class="feature-panel-left"></div>
+          <div class="feature-panel-right">
+            <h2 class="headline">{{feature.headline}}</h2>
+            
+            <a class="button feature-panel-button" href="{{ feature.page.url }}">
+              {{feature.name}} <i class="fa fa-chevron-circle-right"></i>
+            </a>
+
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+      
+  </div>
+
+{% endif %}
+
+{% endif %}

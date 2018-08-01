@@ -1,0 +1,125 @@
+<div class="onecolumn-container clearfix">
+  
+  {% unless page.is_homepage? %}
+  <div class="columns-1-flash">
+    {{ content_for_notifications }}
+  </div>
+  {% endunless %}
+  
+  <div class="content-{{ request.template  | replace: '_', '-' }}">
+    
+    {% if page.headline.size > 0 || page.features.size > 0 %}
+    <div class="page-header">
+      
+      <div class="width-container">
+        {% if page.features_count > 0 %}
+          {% unless page.is_homepage? %}
+            {% include "features" %}
+          {% endunless %}
+        {% endif %}
+        
+        {% if page.parent.slug == "gregor_and_the_vision_team" %}
+          <h2 class="headline candidate-headline">
+            {{ page.headline }}
+          </h2>
+          <h5 class="candidate-label">
+            {% for feature in page.features limit:1 %}
+            {{ feature.name }}
+            {% endfor %}
+          </h5>
+        {% elsif page.headline.size > 0 %}
+        <h2 id="page-headline-top" class="headline">
+          {{ page.headline }}
+        </h2>
+
+        {% comment %}
+          {% capture headline %}{{ page.headline | split:"|" | first}}{% endcapture %}
+          {% capture excerpt %}{{ page.headline | split:"|" | last }}{% endcapture %}
+          <h2 class="headline">
+            {{ page.headline | split:"|" | first}}
+          </h2>
+          
+          {% if excerpt.size > 0 %}
+          <div class="page-excerpt">
+            {{ page.excerpt }}
+          </div>
+          {% endif %}
+        {% endcomment %}
+        {% endif %}
+        
+        <!-- Suggestion -->
+        
+        {% if request.template == "pages_show_suggestion" or request.template == "pages_show_suggestion_wide" %}
+          {% if page.suggestion.has_image? %}
+            <div class="padtop">
+              <img src="{{ page.suggestion.image_url }}" width="470" border="0" />
+            </div>
+          {% endif %}
+        
+        <!--Blog posts-->
+        
+        {% elsif request.template == "pages_show_blog_post" or request.template == "pages_show_blog_post_wide" %}
+          <div class="released-at">
+            {{ page.published_at | date: '%B %d, %Y' }}
+          </div>
+        
+        <!-- Recruiting -->
+        {% elsif request.template == "pages_show_recruiting" or request.template == "pages_show_recruiting_wide" %}
+          <div class="page-excerpt">
+	          {{ page.recruiting.content }}
+            {% if request.sorta_logged_in? %}
+           	 <form><input type="text" id="tracking_link" onclick="this.focus();this.select();" readonly="readonly" value="{{ page.recruiting.featured_page.full_url_with_recruiter }}"></input></form>
+            {% else %}
+            	<form><input type="text" id="tracking_link" onclick="this.focus();this.select();" readonly="readonly" value="{{ page.recruiting.featured_page.full_url_with_recruiter }}"></input></form>
+          	{% endif %}
+    			</div>
+          <div class="row-fluid">
+            <div class="span4">
+              <a class="share-wrap facebook-wrap" href="http://www.facebook.com/share.php?u={{ page.full_url_with_recruiter | urlencode }}">
+                <i class="fa fa-facebook"></i>
+                Share on Facebook
+              </a>
+            </div>
+            <div class="span4">
+              <a class="share-wrap twitter-wrap" href="{{ page.tweet_url }}">
+                <i class="fa fa-twitter"></i>
+                Share on Twitter
+              </a>
+            </div>
+            <div class="span4">
+              <a class="share-wrap email-wrap" href="mailto:?body={{ page.full_url_with_recruiter }}">
+                <i class="fa fa-envelope"></i>
+                Email your friends
+              </a>
+            </div>
+          </div>
+    
+        {% elsif page.is_homepage? %}
+        	{{ page.basic.content }}
+        {% elsif page.type_name == "Basic" and page.parent.slug == "priorities" %}
+          <div class="page-excerpt">
+            {{ page.excerpt }}
+          </div>
+    		{% endif %}
+    	<!--Press release-->
+      {% if request.template == "pages_show_press_release" or request.template == "pages_show_press_release_wide" %}
+      <div class="released-at">
+        {{ page.published_at | date: '%B %d, %Y' }}
+      </div>
+      {% endif %}
+    
+      {% if page.slug == "connect_with_vision" %}
+      <div class="connect-social-links">
+        <div class="social-link fb"><a href="http://www.facebook.com/VisionVancouver"></a></div>
+        <div class="social-link tw"><a href="http://www.twitter.com/VisionVancouver"></a></div>
+        <div class="social-link ig"><a href="http://instagram.com/visionvancouver"></a></div>
+      </div>
+      {% endif %}
+  	</div>
+	{% endif %}
+
+</div>
+	{% yield %}
+
+
+<!-- onecolumn-container -->

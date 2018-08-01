@@ -1,4 +1,4 @@
-.page-pages-show-donation-v2-wide {
+.page-pages-show-donation-v2-wide, .page-pages-show-donation-wide {
   .donation_form .form-wrap {
     margin-bottom: 1.25em;
     margin-top: 0;
@@ -68,7 +68,6 @@
         width: 47px;
         height: 47px;
         text-align: center;
-        background: white;
         @include border-radius(99px);
         font-weight: 700;
         font-size: 14px;

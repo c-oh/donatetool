@@ -1,0 +1,43 @@
+.page-type-donation-v2, .page-type-donation {
+    #page-headline-top {
+        display: none;
+    }
+    .form-wrap {
+        padding: 0px;
+    }
+    .donation_form .form-progress-indicator {
+        background-color: #EA7658;
+    }
+    #donation-bg-container{
+        width: 100%;
+        margin: 0px;
+
+    }
+}
+
+@media(min-width: 768px) {
+    .page-type-donation-v2, .page-type-donation {
+        .donate-box {
+            max-width: 470px;
+        }
+        .donation-body,
+        #intro {
+            max-width: 80%;
+            margin: auto;
+        }
+        .donation_form {
+            background-color: white;
+        }
+        #donation-bg-container{
+            width: 100%;
+            margin: 0px;
+        }
+        footer{
+            margin-top: 0px;
+            &::before{
+                display: none;
+            }
+        }
+    }
+}
+

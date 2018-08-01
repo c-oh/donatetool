@@ -210,7 +210,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.page-type-donation-v2 {
+.page-type-donation-v2, .page-type-donation {
   .header-container{
     background-color: white;
   }
@@ -1997,7 +1997,6 @@ h4.expander-head {
         width: 10px;
         height: 10px;
         border-radius: 5px;
-        background: white;
         color: transparent;
         &:hover {
           text-decoration: none;
@@ -4148,3 +4147,5 @@ label[for=face_tweet_is_twitter], label[for=face_tweet_is_facebook] {
   border-radius: 250px;
   border: 1px solid $blue;
 }
+
+@import "custom-donation-v2";

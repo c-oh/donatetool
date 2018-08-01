@@ -106,13 +106,13 @@ blockquote {
   }
 }
 
-.page-type-donation-v2{
+.page-type-donation-v2, .page-type-donation{
   .page-header, #intro, #stream, #content{
     .width-container{
       max-width: none;
     }
   }
-  .page-pages-show-donation-v2-wide{
+  .page-pages-show-donation-v2-wide, .page-pages-show-donation-wide{
     .radio-inline {
       label.radio {
         width: 110px;
@@ -151,7 +151,7 @@ blockquote {
   float: left;
 }
 
-.page-type-donation-v2{
+.page-type-donation-v2, .page-type-donation{
   .site-logo {
     float: none;
   }
