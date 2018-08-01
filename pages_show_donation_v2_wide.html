@@ -423,6 +423,10 @@
                   {% endif %}
                 <!--end show stuff-->
 
+                <!--check how much they have given-->
+
+                <p>you have given: {{signup.donations_amount_this_cycle_format}}</p>
+                <!--end of check-->
                 <div class="padtop">
                   {% submit_tag "Process Donation", class:"submit-button" %}
                   <a class="progress-stage-button-prev" href="#">Back</a>
