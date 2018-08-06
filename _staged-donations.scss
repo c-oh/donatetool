@@ -4,6 +4,9 @@
     margin-top: 0;
     padding-top: 0;
   }
+  .v2-word-content{
+    padding: 20px;
+  }
   .progress{
     background-color: lightgrey;
   }
@@ -36,7 +39,7 @@
         height: 0;
         border-bottom: 1px solid #ccc;
         position: absolute;
-        top: 53px;
+        top: 66px;
         left: 45px;
       }
       &:last-child {
@@ -116,7 +119,7 @@
     }
   }
   .progress-stages {
-    padding: 20px 0 0 0;
+    padding: 20px 30px;
     text-align: center;
     .progress-stage {
       display: none;

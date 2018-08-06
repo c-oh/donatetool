@@ -1,12 +1,11 @@
 <div class="width-container">
+  <div class="v2-word-content"> 
   <h2 class="headline">{{ page.headline}}</h2>
+  <div class="intro">{{ page.donation_v2.content }}</div>
+  </div>
+  
   <div id="intro" class="intro donation">
-    <div class="row-fluid padtopmore">
-      <div class="span6 v2-intro">
-         {{ page.donation_v2.content }} 
-       
-      </div>
-  <!-- .span6 -->
+    <div class="row-fluid">
   <div class="span6 donation-form-v2">
     {% form_for donation autocomplete:off %}
     <div class="form-wrap">
@@ -80,7 +79,6 @@
                     Your credit card will be billed automatically every month
                   </div>
                 </div>
-               <h4 class="padbottomless">{{ page.donation-v2.amount_formatted }}</h4>
               {% else %}
                 <div class="row-fluid">
                   <div class="span12 padbottomless">
@@ -291,7 +289,7 @@
               {% endif %} {% endif %}
 
             </div>
-
+{% comment %}
             {% for cf in custom_fields.donation %} {% assign custom_field = cf[1] %} {% assign custom_field_id = 'custom_values.' | append:
             custom_field.slug %}
 
@@ -307,7 +305,7 @@
               </div>
             </div>
             {% endfor %}
-
+{% endcomment %}
             <div class="padtop">
               <span class="progress-stage-button-next button">Continue</span>
               <a class="progress-stage-button-prev" href="#">Back</a>
