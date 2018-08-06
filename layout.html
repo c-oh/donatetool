@@ -103,6 +103,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   
+
+
+
 {% comment %}
 <!--
 Start of DoubleClick Floodlight Tag: Please do not remove
@@ -197,7 +200,24 @@ Creation Date: 10/31/2014
             </div>
           </div>
         </footer>
-        
+        {% if site.has_background_image? %}
+      <!--[if lt IE 9]>
+      <script type="text/javascript" src="/javascripts/jquery.backstretch.min.js"></script>
+      <script type="text/javascript">
+        jQuery.backstretch("{{ site.background_image_url }}", {speed: 0});
+      </script>
+      <![endif]-->
+      <style>
+        .page-type-donation-v2 {
+          background: url('{{ site.background_image_url }}') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+    </style>
+    {% endif %}
+    
         <!-- .width-container -->
 
       </div>
