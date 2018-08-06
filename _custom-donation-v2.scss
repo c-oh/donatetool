@@ -8,28 +8,74 @@
         margin: 0px;
         width: 100%;
     }
-    .v2-word-content{
+    .v2-word-content {
         padding: 20px;
         padding-bottom: 0px;
     }
-    .row-fluid .span6{
+    .row-fluid .span6 {
         width: 100%;
     }
-    .stage-label{
+    .stage-label {
         color: #000;
+    }
+    .row-fluid [class*="span"] {
+        margin-left: 0px;
+    }
+    .us-or-canada,
+    .v2-city {
+        margin-right: 9px;
+    }
+    .tax-info {
+        color: #000;
+        font-size: 15px;
+        font-size: 13px;
+    }
+    .confirm-amount-label {
+        font-weight: 400;
+        color: #000;
+        font-size: 17px;
+    }
+}
+
+@media(min-width: 450px) {
+    .page-type-donation-v2 {
+        .email-phone-v2,
+        .city-province-postal-v2,
+        .first-last-v2 {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .email-phone-v2, .first-last-v2{
+            .span6{
+                width: 48%;
+            }
+        }
+        .city-province-postal-v2 span6{
+            width: 31.3%;
+        }
     }
 }
 
 @media(min-width: 666px) {
     .page-type-donation-v2 {
-       .width-container{
-           max-width: 400px;
-           margin-left: 10%;
-       }
-       .headline{
-        font-size: 40px;
-        line-height: 50px;
-       }
+        .form-wrap {
+            border-radius: 10px;
+            margin-bottom: 0px;
+        }
+        .width-container {
+            max-width: 400px;
+            margin-left: 10%;
+        }
+        .headline {
+            font-size: 40px;
+            line-height: 50px;
+        }
     }
 }
 
@@ -42,7 +88,7 @@
         padding: 0px;
     }
     .donation_form .form-progress-indicator {
-        background-color: #EA7658;
+        background-color: #009cfb;
     }
     #donation-bg-container {
         width: 100%;
