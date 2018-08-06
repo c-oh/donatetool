@@ -1,419 +1,419 @@
 <div class="width-container">
-  <div class="v2-word-content"> 
-  <h2 class="headline">{{ page.headline}}</h2>
-  <div class="intro">{{ page.donation_v2.content }}</div>
+    <div class="v2-word-content"> 
+    <h2 class="headline">{{ page.headline}}</h2>
+    <div class="intro">{{ page.donation_v2.content }}</div>
+    </div>
+    
+    <div id="intro" class="intro donation">
+      <div class="row-fluid">
+    <div class="span6 donation-form-v2">
+      {% form_for donation autocomplete:off %}
+      <div class="form-wrap">
+        <div class="donation-header">
+          {% if page.has_meta_image? %}
+          <div class="candidate-image">
+            <img src="{{ page.meta_image_url }}">
+          </div>
+          {% endif %}
+        </div>
+  
+        <div class="form">
+          <div class="form-errors">
+            {% error_messages_for donation %}
+          </div>
+  
+          {% if page.donation-v2.has_merchant_account? == false %}
+          <div class="padbottommore">
+            <span class="red">
+              <strong>No bank account:</strong> This page will not work until you add a bank account</span>
+          </div>
+          {% elsif page.donation-v2.merchant_account.is_test_mode? %}
+          <div class="padbottommore">
+            <span class="red">
+              <strong>Testing mode:</strong> Transactions will not be processed. Use your regular credit card to test, you will not
+              actually be charged.</span>
+          </div>
+          {% endif %}
+  
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="form-progress-indicator">
+                <ul class="progress-indicator-stages clearfix">
+                  <li class="progress-indicator-stage stage-1 active">
+                    <span class="stage-label">Amount</span>
+                    <span class="stage-count">
+                      <span class="stage-count-inner">1</span>
+                    </span>
+                  </li>
+                  <li class="progress-indicator-stage stage-2">
+                    <span class="stage-label">Your Info</span>
+                    <span class="stage-count">
+                      <span class="stage-count-inner">2</span>
+                    </span>
+                  </li>
+                  <li class="progress-indicator-stage stage-3">
+                    <span class="stage-label">Payment</span>
+                    <span class="stage-count">
+                      <span class="stage-count-inner">3</span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+  
+          <div class="progress-stages">
+  
+            <div class="progress-stage stage-1 active" data-stageID="1">
+  
+              {% if request.current_order %} 
+                {% for item in request.current_order.items %} 
+                  {% if item.num_time_periods and item.time_period_type%} 
+                    {{ item.quantity }} {{ item.name }} @ {{ item.amount }} - billed automatically every {{ item.num_time_periods}} {{item.time_period_type }} {% else %} {{ item.quantity }} {{ item.name }} @ {{ item.amount }} {% endif %}
+                 {% endfor %}
+                 <a href="{{ page.donation-v2.clear_order_url }}">Clear order</a>
+               {% elsif page.donation-v2.donation_frequency == "monthly" %} 
+                {% if page.donation-v2.amount_in_cents != 0 %}
+                  <div class="row-fluid">
+                    <div class="span12 padbottomless">
+                      Your credit card will be billed automatically every month
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="row-fluid">
+                    <div class="span12 padbottomless">
+                      Your credit card will be billed automatically every month
+                    </div>
+                  </div>
+                  <div class="radio-inline">
+                   <span>
+                      <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="1" id="donation_amount_1">
+                      <label id="label1" for="donation_amount_1" class="radio">1</label>
+                    </span>
+                    <span>
+                      <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="2" id="donation_amount_2">
+                      <label id="label2" for="donation_amount_2" class="radio">2</label>
+                    </span>
+                    <span>
+                      <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="3" id="donation_amount_3">
+                      <label id="label3" for="donation_amount_3" class="radio">3</label>
+                    </span>
+                    <div class="donation-other-input-container">
+                      <span>
+                        <label id="label4" for="donation_amount_other">Other</label>
+                        <input type="text" name="donation[amount_option]" class="donation_amount nb_donation_v2_amount user-success text" id="donation_amount_other"
+                      placeholder="0.00">
+                     </span>
+                    </div>
+              </div>
+              {% endif %} 
+              
+              {% else %}
+                {% if page.donation-v2.max_installments > 1 %}
+                 <label for="num_installments" class="padbottomless">I want to pay the following in {% collection_select "num_installments", page.donation-v2.installment_collection,
+                  class:"select" %} installments</label>
+                {% endif %}
+              
+                <h4 class="padbottomless">{{ page.donation-v2.amount_formatted }}</h4>
+              <div class="radio-inline padbottomless donation-v2-amounts">
+                <span>
+                  <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="1" id="donation_amount_1">
+                  <label id="label1" for="donation_amount_1" class="radio">1</label>
+                </span>
+                <span>
+                  <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="2" id="donation_amount_2">
+                  <label id="label2" for="donation_amount_2" class="radio">2</label>
+                </span>
+                <span>
+                  <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="3" id="donation_amount_3">
+                  <label id="label3" for="donation_amount_3" class="radio">3</label>
+                </span>
+                <span>
+                  <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="4" id="donation_amount_4">
+                  <label id="label4" for="donation_amount_4" class="radio">4</label>
+                </span>
+                <span>
+                  <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="5" id="donation_amount_5">
+                  <label id="label5" for="donation_amount_5" class="radio">5</label>
+                </span>
+                <span>
+                  <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="6" id="donation_amount_6">
+                  <label id="label6" for="donation_amount_6" class="radio">6</label>
+                </span>
+                <div class="row-fluid donation-v2-options ">
+                  <div class= "donation-other-input-container"> 
+                  <label id="label4" for="donation_amount_other">Other</label>
+                  <input type="text" name="donation[amount]" class="user-success text nb_donation_v2_amount" id="donation_amount_other_input"
+                    placeholder="0.00" style="width: auto;">
+                  </div>
+                </div>
+  
+              </div>
+  
+              
+              {% endif %}
+  
+              <div class="padtop">
+                <span class="progress-stage-button-next button">Continue</span>
+              </div>
+  
+            </div>
+            <!-- .progress-stage-1 -->
+  
+            <div class="progress-stage stage-2" data-stageID="2">
+  
+              <div class="stage-2-forms">
+                <div class="row-fluid first-last-v2">
+  
+                  <div class="span6">{% text_field "first_name", class:"text", placeholder:"First name" %}</div>
+                  <div class="span6">{% text_field "last_name", class:"text", placeholder:"Last name" %}</div>
+  
+                </div>
+                <div class="row-fluid">
+  
+                  <div class="span12">
+                    {% text_field "billing_address.address1", class:"text", placeholder:"Address 1" %} {% text_field "billing_address.address2",
+                    class:"text", placeholder:"Address 2" %}
+                  </div>
+  
+                </div>
+                <div class="row-fluid city-province-postal-v2">
+                  <div class="span4 v2-city">
+                    {% text_field "billing_address.city", class:"text", placeholder:"City" %}
+                  </div>
+                  <div class="span4 us-or-canada canada-only">
+                    {% text_field "billing_address.state", class:"text", placeholder:"Province" %}
+                  </div>
+                  <div class="span4">
+                    {% text_field "billing_address.zip", class:"text", placeholder:"Postal code" %}
+                  </div>
+  
+                </div>
+                <div class="row-fluid email-phone-v2">
+  
+                  <div class="span6">{% email_field "email", class:"text", placeholder:"Email" %}</div>
+                  <div class="span6">
+                    {% phone_field "billing_address.phone_number", class:"text", placeholder:"Phone" %}
+                  </div>
+  
+                </div>
+                <div class="row-fluid">
+  
+                  <div class="span12">
+                    <label class="checkbox" for="donation_email_opt_in">{% check_box "email_opt_in" %} Send email updates</label>
+                  </div>
+  
+                </div>
+                {% if page.donation-v2.merchant_account.is_employer_and_occupation_required? %}
+                <h4 class="padbottomless padtop">Employer Info</h4>
+                <div class="row-fluid">
+  
+                  <div class="span6">{% text_field "employer", class:"text", placeholder:"Employer" %}</div>
+                  <div class="span6">{% text_field "occupation", class:"text", placeholder:"Occupation" %}</div>
+  
+                </div>
+                {% if page.donation-v2.merchant_account.is_employer_address_required? %}
+                <div class="row-fluid">
+  
+                  <div class="span12">
+                    {% collection_select "work_address.country_code", page.donation-v2.countries, "code", "name", class:"select", placeholder:"Employer
+                    country" %}
+                  </div>
+  
+                </div>
+                <div class="row-fluid">
+  
+                  <div class="span12">
+                    {% text_field "work_address.address1", class:"text", placeholder:"Employer address 1" %} {% text_field "work_address.address2",
+                    class:"text", placeholder:"Employer address 2" %} {% text_field "work_address.address3", class:"text work-not-us-or-canada
+                    hide", placeholder:"Employer address 3" %}
+                  </div>
+  
+                </div>
+                <div class="row-fluid">
+  
+                  <div class="span4">
+                    {% text_field "work_address.city", class:"text", placeholder:"City" %}
+                  </div>
+                  <div class="span4 work-us-or-canada">
+                    {% text_field "work_address.state", class:"text", placeholder:"Province" %}
+                  </div>
+                  <div class="span4">
+                    {% text_field "work_address.zip", class:"text", placeholder:"Postal code" %}
+                  </div>
+  
+                </div>
+  
+                {% elsif page.donation_v2.merchant_account.is_employer_city_required? %}
+                <div class="row-fluid">
+  
+                  <div class="span12">
+                    {% collection_select "work_address.country_code", page.donation_v2.countries, "code", "name", class:"select", placeholder:"Employer
+                    country" %}
+                  </div>
+  
+                </div>
+  
+                <div class="row-fluid">
+  
+                  <div class="span4">
+                    {% text_field "work_address.city", class:"text", placeholder:"City" %}
+                  </div>
+                  <div class="span4 work-us-or-canada hide">
+                    {% text_field "work_address.state", class:"text", placeholder:"Province" %}
+                  </div>
+                  <div class="span4">
+                    {% text_field "work_address.zip", class:"text", placeholder:"Postal code" %}
+                  </div>
+  
+                </div>
+                {% endif %}
+  
+                <div class="row-fluid">
+  
+                  <div class="span12">
+                    <div class="padtopless padbottomless">Law requires we ask for your employer and occupation. If you don't have an employer or are retired, put
+                      N/A, and if you are self-employed put "self-employed" in employer and describe your occupation.</div>
+                  </div>
+  
+                </div>
+  
+                {% if page.donation_v2.merchant_account.is_corporate_contribution_required? %}
+                <div class="row-fluid">
+  
+                  <div class="span12 input-checkbox">
+                    <label for="donation_is_corporate_contribution">{% check_box "is_corporate_contribution", class:"checkbox" %} This is a contribution from a business.</label>
+                  </div>
+  
+                </div>
+                {% endif %} {% endif %}
+  
+              </div>
+  {% comment %}
+              {% for cf in custom_fields.donation %} {% assign custom_field = cf[1] %} {% assign custom_field_id = 'custom_values.' | append:
+              custom_field.slug %}
+  
+              <div class="row-fluid">
+                <div class="span12">
+                  {% if custom_field.is_text? or custom_field.is_number? %} {% text_field custom_field_id, class:"text", placeholder:custom_field.name
+                  %} {% elsif custom_field.is_boolean? %}
+                  <label class="checkbox" for="donation_custom_values_{{ custom_field.slug }}_custom">{% check_box custom_field_id, class:"checkbox" %} {{ custom_field.name }}</label>
+                  {% elsif custom_field.is_multiple_choice? %}
+                  <label for="donation_custom_values_{{ custom_field.slug }}_custom">{{ custom_field.name }}</label>
+                  {% collection_select custom_field_id, custom_fields.donation[custom_field.slug].multiple_choice_options, class:"select" %}
+                  {% endif %}
+                </div>
+              </div>
+              {% endfor %}
+  {% endcomment %}
+              <div class="padtop">
+                <span class="progress-stage-button-next button">Continue</span>
+                <a class="progress-stage-button-prev" href="#">Back</a>
+              </div>
+  
+            </div>
+            <!-- .progress-stage-2 -->
+  
+            <div class="progress-stage stage-3" data-stageID="3">
+  
+              {% if page.donation_v2.has_merchant_account? and page.donation_v2.merchant_account.is_paypal_express? == false %}
+              <div class="row-fluid">
+                <div class="span8">
+                  {% text_field "card_number", class:"text", placeholder:"Credit card number" %}
+                </div>
+                <div class="span4 cc">{{ page.donation_v2.merchant_account.accepted_card_icons }}</div>
+              </div>
+              <label for="donation_card_expires_on">Expires</label>
+              <div class="row-fluid">
+                <div class="span12">
+                  {{ page.donation_v2.form_card_expires_on }}
+                </div>
+              </div>
+  
+              <div class="row-fluid">
+                <div class="span12">
+                  {% text_field "card_verification", class:"text", placeholder:"Security code" %}
+                </div>
+              </div>
+              {% endif %}
+  
+  
+              <div class="row-fluid">
+                <div class="span12">
+                  {% if page.donation_v2.merchant_account.has_contribution_rules? %}
+                  <label for="is_confirmation_text">
+                    <strong>Contribution rules</strong>
+                  </label>
+                  {{ page.donation_v2.merchant_account.contribution_rules }}
+  
+                  <label for="donation_is_confirmed" class="checkbox padtop">{% check_box "is_confirmed", class:"checkbox" %} I confirm that the above statements are true and accurate.</label>
+                  {% endif %} {% if page.donation_v2.merchant_account.is_de? %}
+                  <label for="donation_is_de_confirmed" class="checkbox">{% check_box "is_de_confirmed", class:"checkbox" %} I agree to the Democracy Engine
+                    <a href="http://www.democracyengine.com/subscriber_tos" target="_new">Terms of Service</a>
+                    and
+                    <a href="http://www.democracyengine.com/subscriber_privacy_policy" target="_new">Privacy Policy</a>. You will not receive any emails from them, they just deliver your donation to us.
+                  </label>
+                  {% endif %} 
+                  {% if page.donation_v2.has_merchant_account? and page.donation-v2.merchant_account.is_paypal_express? %}
+                  <div class="padtop">
+                    {% submit_tag "Continue to Paypal", class:"success-button" %}
+                    <div class="padtopmore">{{ page.donation_v2.merchant_account.accepted_card_icons }}</div>
+                    <a class="progress-stage-button-prev" href="#">Back</a>
+                  </div>
+  
+                  {% else %}
+  
+                  <!--show stuff-->
+                  <label for="donation_amounts" class="confirm-amount-label">Amount:</label>
+                    {% if page.donation_v2.confirmation_amount %}
+                      <span>{{ page.donation_v2.currency_symbol }}</span>
+                      <span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
+                    {% else %}
+                      <span class="hidden">{{ page.donation_v2.currency_symbol }}</span>
+                      <span class="nb_donation_v2_amount">Please select an amount</span>
+                    {% endif %}
+                  <!--end show stuff-->
+                  
+                  <div class="row-fluid tax-info">
+                    {% if page.donation_v2.merchant_account.is_taxable? %}
+  
+                    <div class="span12">Contributions are<i>not</i> tax deductible.</div>
+                    {% else %}
+                    <div class="span12 textnarrow">Contributions are tax deductible.</div>
+  
+                    {% endif %}
+                  </div>
+  
+  
+  
+                  
+                  <div class="submit-container">
+                    {% submit_tag "Process Donation", class:"submit-button" %}
+                    <a class="progress-stage-button-prev" href="#">Back</a>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+  
+            </div>
+            <!-- .progress-stage-3 -->
+  
+          </div>
+          <!-- .progress-stages -->
+  
+        </div>
+        <!-- .form -->
+  
+      </div>
+      <!-- .form-wrap -->
+  
+      {% endform_for %}
+    </div>
+    <!-- .span6 -->
+  </div>
+  <!-- .row-fluid -->
+  </div>
   </div>
   
-  <div id="intro" class="intro donation">
-    <div class="row-fluid">
-  <div class="span6 donation-form-v2">
-    {% form_for donation autocomplete:off %}
-    <div class="form-wrap">
-      <div class="donation-header">
-        {% if page.has_meta_image? %}
-        <div class="candidate-image">
-          <img src="{{ page.meta_image_url }}">
-        </div>
-        {% endif %}
-      </div>
-
-      <div class="form">
-        <div class="form-errors">
-          {% error_messages_for donation %}
-        </div>
-
-        {% if page.donation-v2.has_merchant_account? == false %}
-        <div class="padbottommore">
-          <span class="red">
-            <strong>No bank account:</strong> This page will not work until you add a bank account</span>
-        </div>
-        {% elsif page.donation-v2.merchant_account.is_test_mode? %}
-        <div class="padbottommore">
-          <span class="red">
-            <strong>Testing mode:</strong> Transactions will not be processed. Use your regular credit card to test, you will not
-            actually be charged.</span>
-        </div>
-        {% endif %}
-
-        <div class="row-fluid">
-          <div class="span12">
-            <div class="form-progress-indicator">
-              <ul class="progress-indicator-stages clearfix">
-                <li class="progress-indicator-stage stage-1 active">
-                  <span class="stage-label">Amount</span>
-                  <span class="stage-count">
-                    <span class="stage-count-inner">1</span>
-                  </span>
-                </li>
-                <li class="progress-indicator-stage stage-2">
-                  <span class="stage-label">Your Info</span>
-                  <span class="stage-count">
-                    <span class="stage-count-inner">2</span>
-                  </span>
-                </li>
-                <li class="progress-indicator-stage stage-3">
-                  <span class="stage-label">Payment</span>
-                  <span class="stage-count">
-                    <span class="stage-count-inner">3</span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="progress-stages">
-
-          <div class="progress-stage stage-1 active" data-stageID="1">
-
-            {% if request.current_order %} 
-              {% for item in request.current_order.items %} 
-                {% if item.num_time_periods and item.time_period_type%} 
-                  {{ item.quantity }} {{ item.name }} @ {{ item.amount }} - billed automatically every {{ item.num_time_periods}} {{item.time_period_type }} {% else %} {{ item.quantity }} {{ item.name }} @ {{ item.amount }} {% endif %}
-               {% endfor %}
-               <a href="{{ page.donation-v2.clear_order_url }}">Clear order</a>
-             {% elsif page.donation-v2.donation_frequency == "monthly" %} 
-              {% if page.donation-v2.amount_in_cents != 0 %}
-                <div class="row-fluid">
-                  <div class="span12 padbottomless">
-                    Your credit card will be billed automatically every month
-                  </div>
-                </div>
-              {% else %}
-                <div class="row-fluid">
-                  <div class="span12 padbottomless">
-                    Your credit card will be billed automatically every month
-                  </div>
-                </div>
-                <div class="radio-inline">
-                 <span>
-                    <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="1" id="donation_amount_1">
-                    <label id="label1" for="donation_amount_1" class="radio">1</label>
-                  </span>
-                  <span>
-                    <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="2" id="donation_amount_2">
-                    <label id="label2" for="donation_amount_2" class="radio">2</label>
-                  </span>
-                  <span>
-                    <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="3" id="donation_amount_3">
-                    <label id="label3" for="donation_amount_3" class="radio">3</label>
-                  </span>
-                  <div class="donation-other-input-container">
-                    <span>
-                      <label id="label4" for="donation_amount_other">Other</label>
-                      <input type="text" name="donation[amount_option]" class="donation_amount nb_donation_v2_amount user-success text" id="donation_amount_other"
-                    placeholder="0.00">
-                   </span>
-                  </div>
-            </div>
-            {% endif %} 
-            
-            {% else %}
-              {% if page.donation-v2.max_installments > 1 %}
-               <label for="num_installments" class="padbottomless">I want to pay the following in {% collection_select "num_installments", page.donation-v2.installment_collection,
-                class:"select" %} installments</label>
-              {% endif %}
-            
-              <h4 class="padbottomless">{{ page.donation-v2.amount_formatted }}</h4>
-            <div class="radio-inline padbottomless donation-v2-amounts">
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="1" id="donation_amount_1">
-                <label id="label1" for="donation_amount_1" class="radio">1</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="2" id="donation_amount_2">
-                <label id="label2" for="donation_amount_2" class="radio">2</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="3" id="donation_amount_3">
-                <label id="label3" for="donation_amount_3" class="radio">3</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="4" id="donation_amount_4">
-                <label id="label4" for="donation_amount_4" class="radio">4</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="5" id="donation_amount_5">
-                <label id="label5" for="donation_amount_5" class="radio">5</label>
-              </span>
-              <span>
-                <input type="radio" name="donation[amount_option]" class="donation_amount_option user-success" value="6" id="donation_amount_6">
-                <label id="label6" for="donation_amount_6" class="radio">6</label>
-              </span>
-              <div class="row-fluid donation-v2-options ">
-                <div class= "donation-other-input-container"> 
-                <label id="label4" for="donation_amount_other">Other</label>
-                <input type="text" name="donation[amount]" class="user-success text nb_donation_v2_amount" id="donation_amount_other_input"
-                  placeholder="0.00" style="width: auto;">
-                </div>
-              </div>
-
-            </div>
-
-            
-            {% endif %}
-
-            <div class="padtop">
-              <span class="progress-stage-button-next button">Continue</span>
-            </div>
-
-          </div>
-          <!-- .progress-stage-1 -->
-
-          <div class="progress-stage stage-2" data-stageID="2">
-
-            <div class="stage-2-forms">
-              <div class="row-fluid first-last-v2">
-
-                <div class="span6">{% text_field "first_name", class:"text", placeholder:"First name" %}</div>
-                <div class="span6">{% text_field "last_name", class:"text", placeholder:"Last name" %}</div>
-
-              </div>
-              <div class="row-fluid">
-
-                <div class="span12">
-                  {% text_field "billing_address.address1", class:"text", placeholder:"Address 1" %} {% text_field "billing_address.address2",
-                  class:"text", placeholder:"Address 2" %}
-                </div>
-
-              </div>
-              <div class="row-fluid city-province-postal-v2">
-                <div class="span4 v2-city">
-                  {% text_field "billing_address.city", class:"text", placeholder:"City" %}
-                </div>
-                <div class="span4 us-or-canada canada-only">
-                  {% text_field "billing_address.state", class:"text", placeholder:"Province" %}
-                </div>
-                <div class="span4">
-                  {% text_field "billing_address.zip", class:"text", placeholder:"Postal code" %}
-                </div>
-
-              </div>
-              <div class="row-fluid email-phone-v2">
-
-                <div class="span6">{% email_field "email", class:"text", placeholder:"Email" %}</div>
-                <div class="span6">
-                  {% phone_field "billing_address.phone_number", class:"text", placeholder:"Phone" %}
-                </div>
-
-              </div>
-              <div class="row-fluid">
-
-                <div class="span12">
-                  <label class="checkbox" for="donation_email_opt_in">{% check_box "email_opt_in" %} Send email updates</label>
-                </div>
-
-              </div>
-              {% if page.donation-v2.merchant_account.is_employer_and_occupation_required? %}
-              <h4 class="padbottomless padtop">Employer Info</h4>
-              <div class="row-fluid">
-
-                <div class="span6">{% text_field "employer", class:"text", placeholder:"Employer" %}</div>
-                <div class="span6">{% text_field "occupation", class:"text", placeholder:"Occupation" %}</div>
-
-              </div>
-              {% if page.donation-v2.merchant_account.is_employer_address_required? %}
-              <div class="row-fluid">
-
-                <div class="span12">
-                  {% collection_select "work_address.country_code", page.donation-v2.countries, "code", "name", class:"select", placeholder:"Employer
-                  country" %}
-                </div>
-
-              </div>
-              <div class="row-fluid">
-
-                <div class="span12">
-                  {% text_field "work_address.address1", class:"text", placeholder:"Employer address 1" %} {% text_field "work_address.address2",
-                  class:"text", placeholder:"Employer address 2" %} {% text_field "work_address.address3", class:"text work-not-us-or-canada
-                  hide", placeholder:"Employer address 3" %}
-                </div>
-
-              </div>
-              <div class="row-fluid">
-
-                <div class="span4">
-                  {% text_field "work_address.city", class:"text", placeholder:"City" %}
-                </div>
-                <div class="span4 work-us-or-canada">
-                  {% text_field "work_address.state", class:"text", placeholder:"Province" %}
-                </div>
-                <div class="span4">
-                  {% text_field "work_address.zip", class:"text", placeholder:"Postal code" %}
-                </div>
-
-              </div>
-
-              {% elsif page.donation_v2.merchant_account.is_employer_city_required? %}
-              <div class="row-fluid">
-
-                <div class="span12">
-                  {% collection_select "work_address.country_code", page.donation_v2.countries, "code", "name", class:"select", placeholder:"Employer
-                  country" %}
-                </div>
-
-              </div>
-
-              <div class="row-fluid">
-
-                <div class="span4">
-                  {% text_field "work_address.city", class:"text", placeholder:"City" %}
-                </div>
-                <div class="span4 work-us-or-canada hide">
-                  {% text_field "work_address.state", class:"text", placeholder:"Province" %}
-                </div>
-                <div class="span4">
-                  {% text_field "work_address.zip", class:"text", placeholder:"Postal code" %}
-                </div>
-
-              </div>
-              {% endif %}
-
-              <div class="row-fluid">
-
-                <div class="span12">
-                  <div class="padtopless padbottomless">Law requires we ask for your employer and occupation. If you don't have an employer or are retired, put
-                    N/A, and if you are self-employed put "self-employed" in employer and describe your occupation.</div>
-                </div>
-
-              </div>
-
-              {% if page.donation_v2.merchant_account.is_corporate_contribution_required? %}
-              <div class="row-fluid">
-
-                <div class="span12 input-checkbox">
-                  <label for="donation_is_corporate_contribution">{% check_box "is_corporate_contribution", class:"checkbox" %} This is a contribution from a business.</label>
-                </div>
-
-              </div>
-              {% endif %} {% endif %}
-
-            </div>
-{% comment %}
-            {% for cf in custom_fields.donation %} {% assign custom_field = cf[1] %} {% assign custom_field_id = 'custom_values.' | append:
-            custom_field.slug %}
-
-            <div class="row-fluid">
-              <div class="span12">
-                {% if custom_field.is_text? or custom_field.is_number? %} {% text_field custom_field_id, class:"text", placeholder:custom_field.name
-                %} {% elsif custom_field.is_boolean? %}
-                <label class="checkbox" for="donation_custom_values_{{ custom_field.slug }}_custom">{% check_box custom_field_id, class:"checkbox" %} {{ custom_field.name }}</label>
-                {% elsif custom_field.is_multiple_choice? %}
-                <label for="donation_custom_values_{{ custom_field.slug }}_custom">{{ custom_field.name }}</label>
-                {% collection_select custom_field_id, custom_fields.donation[custom_field.slug].multiple_choice_options, class:"select" %}
-                {% endif %}
-              </div>
-            </div>
-            {% endfor %}
-{% endcomment %}
-            <div class="padtop">
-              <span class="progress-stage-button-next button">Continue</span>
-              <a class="progress-stage-button-prev" href="#">Back</a>
-            </div>
-
-          </div>
-          <!-- .progress-stage-2 -->
-
-          <div class="progress-stage stage-3" data-stageID="3">
-
-            {% if page.donation_v2.has_merchant_account? and page.donation_v2.merchant_account.is_paypal_express? == false %}
-            <div class="row-fluid">
-              <div class="span8">
-                {% text_field "card_number", class:"text", placeholder:"Credit card number" %}
-              </div>
-              <div class="span4 cc">{{ page.donation_v2.merchant_account.accepted_card_icons }}</div>
-            </div>
-            <label for="donation_card_expires_on">Expires</label>
-            <div class="row-fluid">
-              <div class="span12">
-                {{ page.donation_v2.form_card_expires_on }}
-              </div>
-            </div>
-
-            <div class="row-fluid">
-              <div class="span12">
-                {% text_field "card_verification", class:"text", placeholder:"Security code" %}
-              </div>
-            </div>
-            {% endif %}
-
-
-            <div class="row-fluid">
-              <div class="span12">
-                {% if page.donation_v2.merchant_account.has_contribution_rules? %}
-                <label for="is_confirmation_text">
-                  <strong>Contribution rules</strong>
-                </label>
-                {{ page.donation_v2.merchant_account.contribution_rules }}
-
-                <label for="donation_is_confirmed" class="checkbox padtop">{% check_box "is_confirmed", class:"checkbox" %} I confirm that the above statements are true and accurate.</label>
-                {% endif %} {% if page.donation_v2.merchant_account.is_de? %}
-                <label for="donation_is_de_confirmed" class="checkbox">{% check_box "is_de_confirmed", class:"checkbox" %} I agree to the Democracy Engine
-                  <a href="http://www.democracyengine.com/subscriber_tos" target="_new">Terms of Service</a>
-                  and
-                  <a href="http://www.democracyengine.com/subscriber_privacy_policy" target="_new">Privacy Policy</a>. You will not receive any emails from them, they just deliver your donation to us.
-                </label>
-                {% endif %} 
-                {% if page.donation_v2.has_merchant_account? and page.donation-v2.merchant_account.is_paypal_express? %}
-                <div class="padtop">
-                  {% submit_tag "Continue to Paypal", class:"success-button" %}
-                  <div class="padtopmore">{{ page.donation_v2.merchant_account.accepted_card_icons }}</div>
-                  <a class="progress-stage-button-prev" href="#">Back</a>
-                </div>
-
-                {% else %}
-
-                <!--show stuff-->
-                <label for="donation_amounts" class="confirm-amount-label">Amount:</label>
-                  {% if page.donation_v2.confirmation_amount %}
-                    <span>{{ page.donation_v2.currency_symbol }}</span>
-                    <span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
-                  {% else %}
-                    <span class="hidden">{{ page.donation_v2.currency_symbol }}</span>
-                    <span class="nb_donation_v2_amount">Please select an amount</span>
-                  {% endif %}
-                <!--end show stuff-->
-                
-                <div class="row-fluid tax-info">
-                  {% if page.donation_v2.merchant_account.is_taxable? %}
-
-                  <div class="span12">Contributions are<i>not</i> tax deductible.</div>
-                  {% else %}
-                  <div class="span12 textnarrow">Contributions are tax deductible.</div>
-
-                  {% endif %}
-                </div>
-
-
-
-                
-                <div class="submit-container">
-                  {% submit_tag "Process Donation", class:"submit-button" %}
-                  <a class="progress-stage-button-prev" href="#">Back</a>
-                </div>
-                {% endif %}
-              </div>
-            </div>
-
-          </div>
-          <!-- .progress-stage-3 -->
-
-        </div>
-        <!-- .progress-stages -->
-
-      </div>
-      <!-- .form -->
-
-    </div>
-    <!-- .form-wrap -->
-
-    {% endform_for %}
-  </div>
-  <!-- .span6 -->
-</div>
-<!-- .row-fluid -->
-</div>
-</div>
-
-<script src="donateScripts.js"></script>
-<script src="/assets/liquid/theme_donation_v2.js"></script>
+  <script src="donateScripts.js"></script>
+  <script src="/assets/liquid/theme_donation_v2.js"></script>
