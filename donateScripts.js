@@ -1,5 +1,7 @@
 
 
+var dollar = "$";
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -10,15 +12,13 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-// query string: ?foo=lorem&bar=&baz
 var ask = getParameterByName('ask');
-if (ask <= 0 || ask >= 1200) {
+if (ask <= 0) {
     ask = 5
 }
 
 document.getElementById("donation_amount_1").value = ask;
-document.getElementById("label1").innerText = ask;
-var legalMax = 1200;
+document.getElementById("label1").innerText = dollar + ask;
 
 function round5(x)
 {
@@ -43,12 +43,12 @@ if(ask < 40){
 
 
 document.getElementById("donation_amount_2").value = askInc1;
-document.getElementById("label2").innerText = askInc1;
+document.getElementById("label2").innerText = dollar +askInc1;
 document.getElementById("donation_amount_3").value = askInc2;
-document.getElementById("label3").innerText = askInc2;
+document.getElementById("label3").innerText = dollar +askInc2;
 document.getElementById("donation_amount_4").value = askInc3;
-document.getElementById("label4").innerText = askInc3;
+document.getElementById("label4").innerText = dollar +askInc3;
 document.getElementById("donation_amount_5").value = askInc4;
-document.getElementById("label5").innerText = askInc4;
+document.getElementById("label5").innerText = dollar +askInc4;
 document.getElementById("donation_amount_6").value = askInc5;
-document.getElementById("label6").innerText = askInc5;
+document.getElementById("label6").innerText = dollar +askInc5;
