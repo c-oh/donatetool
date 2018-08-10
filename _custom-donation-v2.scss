@@ -1,7 +1,13 @@
 .page-type-donation-v2 {
-    .page-header .width-container, 
-    .intro.donation{
+    .page-header .width-container,
+    .intro.donation {
         border: none;
+    }
+    .intro {
+        padding: 18px 0px;
+        p {
+            margin: 0px;
+        }
     }
     background: none;
     .header-container,
@@ -40,33 +46,43 @@
         font-size: 17px;
     }
     .email-phone-v2,
-        .city-province-postal-v2,
-        .first-last-v2 {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            &::before, &::after{
-                display: none;
-            }
+    .city-province-postal-v2,
+    .first-last-v2 {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        &::before,
+        &::after {
+            display: none;
         }
-        .email-phone-v2, .first-last-v2{
-            .span6{
-                width: 48%;
-            }
+    }
+    .email-phone-v2,
+    .first-last-v2 {
+        .span6 {
+            width: 48%;
         }
-        .city-province-postal-v2 .span4{
-            width: 31.3%;
-        }
+    }
+    .city-province-postal-v2 .span4 {
+        width: 31.3%;
+    }
 }
-
 
 @media(min-width: 666px) {
     .page-type-donation-v2 {
+        .v2-word-content {
+            background-color: white;
+            margin-bottom: -16px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+        .page-pages-show-donation-v2-wide .radio-inline label.radio {
+            width: 100% !important;
+        }
         .form-wrap {
             border-radius: 10px;
             margin-bottom: 0px;
@@ -74,6 +90,7 @@
         .width-container {
             max-width: 400px;
             margin-left: 10%;
+            margin-top: 30px;
         }
         .headline {
             font-size: 40px;
@@ -152,7 +169,8 @@
                 display: none;
             }
         }
-    }.page-type-donation-v2 .page-pages-show-donation-v2-wide .radio-inline label.radio{
+    }
+    .page-type-donation-v2 .page-pages-show-donation-v2-wide .radio-inline label.radio {
         width: 100%;
     }
 }
