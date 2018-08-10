@@ -337,9 +337,10 @@
               <div class="row-fluid">
                 <div class="cc-confirm-submit-container">
                   {% if page.donation_v2.merchant_account.has_contribution_rules? %}
-                  <h5 class="donate-rules-header">Contribution rules</h5>
+                  {% comment %}
+                  <label class="donate-rules-header">Contribution rules</label>
                   <p class="donate-rules">{{ page.donation_v2.merchant_account.contribution_rules }}</p>
-  
+                  {%endcomment%}
                   
                   {% endif %} {% if page.donation_v2.merchant_account.is_de? %}
                   <label for="donation_is_de_confirmed" class="checkbox">{% check_box "is_de_confirmed", class:"checkbox" %} I agree to the Democracy Engine
@@ -379,7 +380,7 @@
                   </div>
   
   
-                  <label for="donation_is_confirmed" class="checkbox padtop cc-confirm-true">{% check_box "is_confirmed", class:"checkbox" %} I confirm that the above statements are true and accurate.</label>
+                  <label for="donation_is_confirmed" class="checkbox padtop cc-confirm-true">{% check_box "is_confirmed", class:"checkbox" %} {{ page.donation_v2.merchant_account.contribution_rules }}</label>
                   
                   <div class="submit-container">
                     {% submit_tag "Process Donation", class:"submit-button" %}
