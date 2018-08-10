@@ -317,24 +317,20 @@
             <div class="progress-stage stage-3" data-stageID="3">
   
               {% if page.donation_v2.has_merchant_account? and page.donation_v2.merchant_account.is_paypal_express? == false %}
-              <div class="row-fluid">
-                <div class="span8">
+              <div class="row-fluid cc-content">
+                <div class="span8 cc-number">
                   {% text_field "card_number", class:"text", placeholder:"Credit card number" %}
                 </div>
-                <div class="span4 cc">{{ page.donation_v2.merchant_account.accepted_card_icons }}</div>
               </div>
-              <label for="donation_card_expires_on">Expires</label>
-              <div class="row-fluid">
-                <div class="span12">
+              <div class="cc-info-container"> 
+              <label for="donation_card_expires_on" class="cc-expire-label">Expires</label>
+              <div class="row-fluid cc-expire-selection">        
                   {{ page.donation_v2.form_card_expires_on }}
-                </div>
+                  <div class="cc-expire">
+                      {% text_field "card_verification", class:"text", placeholder:"Security code" %}
+                  </div>
               </div>
-  
-              <div class="row-fluid">
-                <div class="span12">
-                  {% text_field "card_verification", class:"text", placeholder:"Security code" %}
-                </div>
-              </div>
+            </div>
               {% endif %}
   
   
@@ -344,9 +340,9 @@
                   <label for="is_confirmation_text">
                     <strong>Contribution rules</strong>
                   </label>
-                  {{ page.donation_v2.merchant_account.contribution_rules }}
+                  <p>{{ page.donation_v2.merchant_account.contribution_rules }}</p>
   
-                  <label for="donation_is_confirmed" class="checkbox padtop">{% check_box "is_confirmed", class:"checkbox" %} I confirm that the above statements are true and accurate.</label>
+                  
                   {% endif %} {% if page.donation_v2.merchant_account.is_de? %}
                   <label for="donation_is_de_confirmed" class="checkbox">{% check_box "is_de_confirmed", class:"checkbox" %} I agree to the Democracy Engine
                     <a href="http://www.democracyengine.com/subscriber_tos" target="_new">Terms of Service</a>
@@ -377,7 +373,7 @@
                   <div class="row-fluid tax-info">
                     {% if page.donation_v2.merchant_account.is_taxable? %}
   
-                    <div class="span12">Contributions are<i>not</i> tax deductible.</div>
+                    <div class="span12">Contributions are<i> not</i> tax deductible.</div>
                     {% else %}
                     <div class="span12 textnarrow">Contributions are tax deductible.</div>
   
@@ -385,7 +381,7 @@
                   </div>
   
   
-  
+                  <label for="donation_is_confirmed" class="checkbox padtop">{% check_box "is_confirmed", class:"checkbox" %} I confirm that the above statements are true and accurate.</label>
                   
                   <div class="submit-container">
                     {% submit_tag "Process Donation", class:"submit-button" %}
