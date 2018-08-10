@@ -362,7 +362,7 @@
                   <label for="donation_amounts" class="confirm-amount-label">Amount:</label>
                     {% if page.donation_v2.confirmation_amount %}
                       <span>{{ page.donation_v2.currency_symbol }}</span>
-                      <span class="nb_donation_v2_amount">{{ page.donation_v2.confirmation_amount }}</span>
+                      <span class="nb_donation_v2_amount confirm-number">{{ page.donation_v2.confirmation_amount }}</span>
                     {% else %}
                       <span class="hidden">{{ page.donation_v2.currency_symbol }}</span>
                       <span class="nb_donation_v2_amount">Please select an amount</span>
