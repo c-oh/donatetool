@@ -111,33 +111,46 @@
     .cc-confirm-submit-container {
         margin-top: 17px;
     }
-    .form-errors{
+    .form-errors {
         margin-bottom: 0px;
     }
-    #errorExplanation{
-     padding: 20px; 
-     text-align: center;  
-     margin: 0px;
-     h2{
-        font-size: 18px;
-        color: white;
-     }
-     ul, li{
-         padding: 0px;
-         font-size: 15px;
-     }
+    #errorExplanation {
+        padding: 20px;
+        text-align: center;
+        margin: 0px;
+        h2 {
+            font-size: 18px;
+            color: white;
+        }
+        ul,
+        li {
+            padding: 0px;
+            font-size: 15px;
+        }
     }
-    .confirm-number{
+    .confirm-number {
         margin-left: -6px;
+    }
+    .donation-v2-amounts span {
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }
 
 @media(min-width: 666px) {
+    .page-pages-show-donation-v2-wide .donation_form .form-wrap {
+        margin-bottom: 0px;
+    }
     .page-type-donation-v2 {
+        #intro {
+            -webkit-box-shadow: 11px 7px 22px -3px #000;
+            box-shadow: 11px 7px 22px -3px #000;
+        }
         .v2-word-content {
             background-color: white;
             margin-bottom: -43px;
-            .headline{
+            .headline {
                 margin-left: 11px;
             }
             .intro {
@@ -155,19 +168,20 @@
             max-width: 400px;
             margin-left: 10%;
             margin-top: 30px;
+            margin-bottom: 30px;
         }
         .headline {
             font-size: 40px;
             line-height: 50px;
         }
         .cc-expire-selection {
-            #donation_card_expires_on_1i{
+            #donation_card_expires_on_1i {
                 width: 26%;
             }
-            #donation_card_expires_on_2i{
+            #donation_card_expires_on_2i {
                 width: 34%;
             }
-            .cc-expire{
+            .cc-expire {
                 width: 33%;
             }
         }
