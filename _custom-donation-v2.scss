@@ -3,6 +3,9 @@
     .intro.donation {
         border: none;
     }
+    .progress-stages{
+        padding: 20px 30px;
+    }
     .v2-word-content.intro {
         padding: 18px 0px;
         p {
@@ -55,6 +58,9 @@
         justify-content: space-between;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        display: -webkit-flex;
+        -webkit-flex-wrap: wrap;
+        -webkit-justify-content: space-between;
         &::before,
         &::after {
             display: none;
@@ -81,6 +87,9 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
+        display: -webkit-flex;
+        -webkit-flex-wrap: wrap;
+        -webkit-justify-content: space-between;
         #donation_card_expires_on_1i,
         #donation_card_expires_on_2i {
             width: 48%;
@@ -143,7 +152,7 @@
         margin-bottom: 0px;
     }
     .page-type-donation-v2 {
-        #intro {
+        .width-container {
             -webkit-box-shadow: 11px 7px 22px -3px #000;
             box-shadow: 11px 7px 22px -3px #000;
         }
@@ -188,8 +197,7 @@
     }
 }
 
-.page-type-donation-v2,
-.page-type-donation {
+.page-type-donation-v2 {
     #page-headline-top {
         display: none;
     }
@@ -218,6 +226,9 @@
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
+        display: -webkit-flex;
+        -webkit-flex-wrap: wrap;
+        -webkit-justify-content: space-between;
         span {
             width: 29.11%;
         }
@@ -228,7 +239,7 @@
 }
 
 @media(min-width: 768px) {
-    .page-type-donation {
+    .page-type-donation-v2 {
         .donate-box {
             max-width: 470px;
         }
@@ -236,6 +247,9 @@
         #intro {
             max-width: 80%;
             margin: auto;
+        }
+        #intro{
+            max-width: 100%;
         }
         .donation_form {
             background-color: white;
@@ -251,15 +265,18 @@
             }
         }
     }
-    .page-type-donation-v2 {
-        footer {
-            margin-top: 0px;
-            &::before {
-                display: none;
-            }
-        }
-    }
     .page-type-donation-v2 .page-pages-show-donation-v2-wide .radio-inline label.radio {
         width: 100%;
+    }
+}
+
+@media(min-width: 768px) {
+    .page-pages-show-donation-wide {
+        #intro {
+            padding: 0 50px;
+        }
+        .form-wrap {
+            padding: 0px;
+        }
     }
 }
