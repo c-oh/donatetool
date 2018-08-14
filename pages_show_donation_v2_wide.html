@@ -316,22 +316,9 @@
   
             <div class="progress-stage stage-3" data-stageID="3">
   
-              {% if page.donation_v2.has_merchant_account? and page.donation_v2.merchant_account.is_paypal_express? == false %}
-              <div class=" cc-content">
-                <div class="cc-number">
-                  {% text_field "card_number", class:"text", placeholder:"Credit card number" %}
-                </div>
-              </div>
-              <div class="cc-info-container"> 
-              <label for="donation_card_expires_on" class="cc-expire-label">Expires</label>
-              <div class=" cc-expire-selection">        
-                  {{ page.donation_v2.form_card_expires_on }}
-                  <div class="cc-expire">
-                      {% text_field "card_verification", class:"text", placeholder:"Security code" %}
-                  </div>
-              </div>
-            </div>
-              {% endif %}
+              
+                {% payment_field 'card' %}
+             
   
   
               <div class="row-fluid">
